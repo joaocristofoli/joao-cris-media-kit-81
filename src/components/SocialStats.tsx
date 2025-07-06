@@ -94,7 +94,7 @@ const SocialStats = () => {
         {/* Instagram Highlight */}
         <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold gradient-text mb-4">Destaque Instagram</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div>
               <div className="text-3xl font-bold text-gray-900">500K</div>
               <div className="text-gray-600">Seguidores</div>
@@ -106,6 +106,10 @@ const SocialStats = () => {
             <div>
               <div className="text-3xl font-bold text-gray-900">20K+</div>
               <div className="text-gray-600">Visualizações Mínimas/Reels</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-gray-900">10K+</div>
+              <div className="text-gray-600">Visualizações Mínimas/Stories</div>
             </div>
           </div>
         </div>

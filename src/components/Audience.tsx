@@ -4,9 +4,9 @@ import { Card, CardContent } from "@/components/ui/card";
 const Audience = () => {
   const audienceFeatures = [
     {
-      title: "Nicho Cristão",
-      description: "Forte conexão com o público evangélico e pessoas em busca de fé",
-      icon: "⛪",
+      title: "Conteúdo Divertido",
+      description: "Forte conexão com o público que busca entretenimento e diversão",
+      icon: "😄",
       highlight: "Alta conversão"
     },
     {
@@ -16,8 +16,8 @@ const Audience = () => {
       highlight: "Engajamento genuíno"
     },
     {
-      title: "Testemunhos Reais",
-      description: "Público que valoriza autenticidade e histórias verdadeiras",
+      title: "Entretenimento Positivo",
+      description: "Público que valoriza conteúdo leve e inspirador",
       icon: "❤️",
       highlight: "Conexão emocional"
     },
@@ -37,8 +37,8 @@ const Audience = () => {
             Perfil do <span className="gradient-text">Público</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Uma audiência engajada que se conecta profundamente com mensagens de fé, 
-            superação e propósito de vida.
+            Uma audiência engajada que se conecta profundamente com mensagens de 
+            superação, entretenimento e conteúdo positivo.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ const Audience = () => {
             </div>
             <div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Interesses</h4>
-              <p className="text-gray-600">Fé, família, superação pessoal, motivação e espiritualidade</p>
+              <p className="text-gray-600">Entretenimento, família, superação pessoal, motivação e conteúdo divertido</p>
             </div>
             <div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Comportamento</h4>

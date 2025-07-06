@@ -7,9 +7,9 @@ const PricingTable = () => {
     {
       platform: "Instagram",
       packages: [
-        { format: "Combo Viral", deliverables: "1 Reels + 3 Stories", price: "R$ 15.000", highlight: true },
-        { format: "Reels", deliverables: "Vídeo até 90s", price: "R$ 12.000" },
-        { format: "Stories", deliverables: "3 de 15s", price: "R$ 4.500" },
+        { format: "Combo Viral", deliverables: "1 Reels + 3 Stories", price: "R$ 4.000", highlight: true },
+        { format: "Reels", deliverables: "Vídeo até 90s", price: "R$ 3.200" },
+        { format: "Stories", deliverables: "3 de 15s", price: "R$ 1.000" },
         { format: "Feed", deliverables: "Imagem ou Carrossel", price: "R$ 6.000" }
       ],
       color: "from-purple-500 to-pink-500"
@@ -17,16 +17,14 @@ const PricingTable = () => {
     {
       platform: "TikTok",
       packages: [
-        { format: "Vídeo Dedicado", deliverables: "Até 60s", price: "R$ 18.000", highlight: true }
+        { format: "Vídeo Dedicado", deliverables: "Até 90s", price: "R$ 3.000", highlight: true }
       ],
       color: "from-pink-500 to-red-500"
     },
     {
       platform: "YouTube",
       packages: [
-        { format: "Vídeo Dedicado", deliverables: "5-8min", price: "R$ 25.000", highlight: true },
-        { format: "Integração", deliverables: "60–90s inserção", price: "R$ 14.000" },
-        { format: "Shorts", deliverables: "Até 60s", price: "R$ 9.000" }
+        { format: "Shorts", deliverables: "Até 60s", price: "R$ 2.000", highlight: true }
       ],
       color: "from-red-500 to-red-600"
     }
@@ -35,7 +33,7 @@ const PricingTable = () => {
   const campaignPackage = {
     title: "Campanha Multiplataforma",
     description: "IG + TikTok + YT Shorts",
-    price: "R$ 35.000+",
+    price: "R$ 8.500+",
     benefits: [
       "Maior alcance e impacto",
       "Narrativa consistente",

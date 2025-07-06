@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 const Contact = () => {
   const contactInfo = {
     name: "João Vitor da Silva Christofoli",
-    email: "contato.joaocris@email.com",
+    phone: "(11) 97396-4702",
+    email: "contatojoaocris@gmail.com",
     cnpj: "53.323.287/0001-57"
   };
 
@@ -43,6 +44,16 @@ const Contact = () => {
                 </div>
                 
                 <div>
+                  <h4 className="font-semibold text-lg mb-2">Telefone</h4>
+                  <a 
+                    href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
+                    className="text-white/90 hover:text-white transition-colors underline"
+                  >
+                    {contactInfo.phone}
+                  </a>
+                </div>
+                
+                <div>
                   <h4 className="font-semibold text-lg mb-2">E-mail Comercial</h4>
                   <a 
                     href={`mailto:${contactInfo.email}`}
@@ -68,8 +79,9 @@ const Contact = () => {
                 <Button 
                   variant="outline" 
                   className="flex-1 border-white text-white hover:bg-white hover:text-joao-pink"
+                  onClick={() => window.open(`https://wa.me/55${contactInfo.phone.replace(/\D/g, '')}`, '_blank')}
                 >
-                  WhatsApp Business
+                  WhatsApp
                 </Button>
               </div>
             </CardContent>
@@ -118,7 +130,7 @@ const Contact = () => {
             <h3 className="text-2xl font-bold mb-4">Pronto para fazer a diferença?</h3>
             <p className="text-white/90 mb-6 text-lg">
               Junte-se a marcas que já confiam no meu trabalho e alcance milhões de pessoas 
-              com uma mensagem autêntica de fé e superação.
+              com uma mensagem autêntica e inspiradora.
             </p>
             <Button 
               size="lg"
