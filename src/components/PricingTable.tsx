@@ -9,7 +9,7 @@ const PricingTable = () => {
       packages: [
         { format: "Combo Viral", deliverables: "1 Reels + 3 Stories", price: "R$ 4.000", highlight: true },
         { format: "Reels", deliverables: "Vídeo até 90s", price: "R$ 3.200" },
-        { format: "Stories", deliverables: "3 de 15s", price: "R$ 1.000" },
+        { format: "Stories", deliverables: "3 de 15s", price: "R$ 1.400" },
         { format: "Feed", deliverables: "Imagem ou Carrossel", price: "R$ 6.000" }
       ],
       color: "from-purple-500 to-pink-500"

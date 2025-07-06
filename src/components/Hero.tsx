@@ -49,17 +49,9 @@ const Hero = () => {
               >
                 Entre em Contato
               </Button>
-              
-              <Button 
-                variant="outline"
-                size="lg"
-                className="border-joao-pink text-joao-pink hover:bg-joao-pink hover:text-white transition-colors px-8 py-4"
-              >
-                Baixar Media Kit PDF
-              </Button>
             </div>
 
-            <div className="flex items-center justify-center lg:justify-start space-x-8 pt-4">
+            <div className="flex items-center justify-center lg:justify-start space-x-6 pt-4">
               <div className="text-center">
                 <div className="text-2xl font-bold gradient-text">+3.4M</div>
                 <div className="text-sm text-gray-600">Seguidores</div>

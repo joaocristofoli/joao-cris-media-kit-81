@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -78,7 +77,7 @@ const Contact = () => {
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="flex-1 border-white text-white hover:bg-white hover:text-joao-pink"
+                  className="flex-1 border-white bg-white text-joao-pink hover:bg-white/90 hover:text-joao-pink"
                   onClick={() => window.open(`https://wa.me/55${contactInfo.phone.replace(/\D/g, '')}`, '_blank')}
                 >
                   WhatsApp
