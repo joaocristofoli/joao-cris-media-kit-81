@@ -7,7 +7,11 @@ import Audience from "@/components/Audience";
 import PricingTable from "@/components/PricingTable";
 import Contact from "@/components/Contact";
 
+console.log('Index page loaded'); // Debug log
+
 const Index = () => {
+  console.log('Index component rendering...'); // Debug log
+  
   return (
     <div className="min-h-screen">
       <Header />
