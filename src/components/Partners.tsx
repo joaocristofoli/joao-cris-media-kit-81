@@ -1,12 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useState, useEffect } from "react";
+
+interface Partner {
+  name: string;
+  logo: string;
+}
 
 const Partners = () => {
-  const currentPartners = [
+  const [currentPartners, setCurrentPartners] = useState<Partner[]>([
     { name: "Parceiro 1", logo: "🤝" },
     { name: "Parceiro 2", logo: "🤝" },
     { name: "Parceiro 3", logo: "🤝" },
     { name: "Parceiro 4", logo: "🤝" }
-  ];
+  ]);
+
+  useEffect(() => {
+    const savedPartners = localStorage.getItem('partners');
+    if (savedPartners) {
+      setCurrentPartners(JSON.parse(savedPartners));
+    }
+  }, []);
 
   const futurePartners = Array(8).fill({ name: "Futuro Parceiro", logo: "+" });
 
@@ -34,7 +47,11 @@ const Partners = () => {
               >
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-joao-pink/10 to-joao-purple/10 rounded-full flex items-center justify-center text-3xl border-2 border-joao-pink/20 group-hover:border-joao-pink/50 transition-all">
-                    {partner.logo}
+                    {partner.logo.startsWith('http') ? (
+                      <img src={partner.logo} alt={partner.name} className="w-12 h-12 object-cover rounded-full" />
+                    ) : (
+                      <span>{partner.logo}</span>
+                    )}
                   </div>
                   <p className="text-sm text-gray-600 font-medium">{partner.name}</p>
                 </CardContent>
