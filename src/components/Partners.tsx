@@ -8,10 +8,10 @@ interface Partner {
 
 const Partners = () => {
   const [currentPartners, setCurrentPartners] = useState<Partner[]>([
-    { name: "Parceiro 1", logo: "🤝" },
-    { name: "Parceiro 2", logo: "🤝" },
-    { name: "Parceiro 3", logo: "🤝" },
-    { name: "Parceiro 4", logo: "🤝" }
+    { name: "Burger King", logo: "/lovable-uploads/e1ea7051-e517-4b51-9592-bd6707bc75c7.png" },
+    { name: "Bluefit", logo: "/lovable-uploads/2343ca2c-9519-408b-ac8c-b8787740349a.png" },
+    { name: "Filezão", logo: "/lovable-uploads/e07f8eb0-984f-434e-b565-f64fe4f0ae39.png" },
+    { name: "Santo Mana", logo: "/lovable-uploads/0ad759f0-17b5-482b-983d-df444c46d2d2.png" }
   ]);
 
   useEffect(() => {
