@@ -8,10 +8,10 @@ interface Partner {
 
 const Partners = () => {
   const [currentPartners, setCurrentPartners] = useState<Partner[]>([
-    { name: "Burger King", logo: "/lovable-uploads/e1ea7051-e517-4b51-9592-bd6707bc75c7.png" },
-    { name: "Bluefit", logo: "/lovable-uploads/2343ca2c-9519-408b-ac8c-b8787740349a.png" },
-    { name: "Filezão", logo: "/lovable-uploads/e07f8eb0-984f-434e-b565-f64fe4f0ae39.png" },
-    { name: "Santo Mana", logo: "/lovable-uploads/0ad759f0-17b5-482b-983d-df444c46d2d2.png" }
+    { name: "Burger King", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi6PhXrEEszanWfEbYteDU5BS9AOjMGcz9Iy3jPPGy6Ey4HZRdUGb1Dhg&s=10" },
+    { name: "Bluefit", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6VqhlxfnzU4DJ37EZN5t9WjJ1eUnRXa_Lnum9yaDXNnrvFmOwk5DXJRpt&s=10" },
+    { name: "Filezão", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg2USjgVa5e4PsxK_QoCpR_Mgpd6j0rbPpLPorwRDtM-i07dx6IHJu9s&s=10" },
+    { name: "Santo Mana", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT434W22BF8Jq1Inm081GusZz1_6BBotKxdDQ&s" }
   ]);
 
   useEffect(() => {
