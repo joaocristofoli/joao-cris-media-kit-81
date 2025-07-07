@@ -17,19 +17,18 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contato" className="py-20 bg-gradient-to-br from-joao-pink to-joao-purple text-white">
+    <section id="contato" className="py-12 bg-gradient-to-br from-joao-pink to-joao-purple text-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 animate-fade-in">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             Vamos Trabalhar <span className="text-white/90">Juntos?</span>
           </h2>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Entre em contato para parcerias, campanhas publicitárias e colaborações. 
-            Estou pronto para levar sua marca a milhões de pessoas.
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+            Entre em contato para parcerias. Alcance <strong>MILHÕES</strong> de pessoas <strong>CLASSES A, B e C</strong>.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-12">
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
           {/* Contact Info */}
           <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white animate-fade-in">
             <CardHeader>
@@ -115,9 +114,9 @@ const Contact = () => {
                 ))}
               </div>
               
-              <div className="mt-8 text-center">
-                <p className="text-white/80 mb-4">Siga todas as minhas redes para acompanhar minha jornada</p>
-                <div className="text-2xl font-bold">+3.4M seguidores esperando por você!</div>
+              <div className="mt-6 text-center">
+                <p className="text-white/80 mb-3 text-sm">Siga todas as minhas redes</p>
+                <div className="text-xl font-bold">+3.4M seguidores esperando!</div>
               </div>
             </CardContent>
           </Card>
@@ -125,15 +124,14 @@ const Contact = () => {
 
         {/* Call to Action */}
         <div className="text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">Pronto para fazer a diferença?</h3>
-            <p className="text-white/90 mb-6 text-lg">
-              Junte-se a marcas que já confiam no meu trabalho e alcance milhões de pessoas 
-              com uma mensagem autêntica e inspiradora.
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-3xl mx-auto">
+            <h3 className="text-xl font-bold mb-3">Pronto para fazer a diferença?</h3>
+            <p className="text-white/90 mb-4 text-base">
+              Alcance <strong>MILHÕES</strong> de pessoas com mensagem autêntica e inspiradora.
             </p>
             <Button 
               size="lg"
-              className="bg-white text-joao-pink hover:bg-white/90 font-semibold px-8 py-4"
+              className="bg-white text-joao-pink hover:bg-white/90 font-semibold px-6 py-3"
               onClick={() => window.location.href = `mailto:${contactInfo.email}?subject=Proposta de Parceria - João Cris`}
             >
               Vamos Conversar!

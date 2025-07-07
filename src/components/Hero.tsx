@@ -7,8 +7,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white pt-20">
-      <div className="container mx-auto px-4 py-12">
+    <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-gray-50 to-white pt-20">
+      <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           
           {/* Foto */}
@@ -41,18 +41,21 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-              <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">+3.4</div>
-                <div className="text-sm text-gray-600">Milhões de Seguidores</div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/20 text-center hover:shadow-xl transition-all">
+                <div className="text-3xl font-bold gradient-text">+3.4</div>
+                <div className="text-lg font-semibold text-joao-pink">MILHÕES</div>
+                <div className="text-sm text-gray-600">Seguidores</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">+50</div>
-                <div className="text-sm text-gray-600">Milhões de Views</div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/20 text-center hover:shadow-xl transition-all">
+                <div className="text-3xl font-bold gradient-text">+50</div>
+                <div className="text-lg font-semibold text-joao-pink">MILHÕES</div>
+                <div className="text-sm text-gray-600">Views</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">9.5</div>
-                <div className="text-sm text-gray-600">Milhões/Vídeo</div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/20 text-center hover:shadow-xl transition-all">
+                <div className="text-3xl font-bold gradient-text">9.5</div>
+                <div className="text-lg font-semibold text-joao-pink">MILHÕES</div>
+                <div className="text-sm text-gray-600">Views/Vídeo</div>
               </div>
             </div>
           </div>

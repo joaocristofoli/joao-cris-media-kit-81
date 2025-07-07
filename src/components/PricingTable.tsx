@@ -47,15 +47,14 @@ const PricingTable = () => {
   };
 
   return (
-    <section id="investimento" className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section id="investimento" className="py-12 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 animate-fade-in">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Proposta de <span className="gradient-text">Investimento</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Valores de investimento para parcerias e campanhas publicitárias. 
-            Todos os valores são de partida e podem ser personalizados.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Valores de investimento para parcerias. Foco em <strong className="text-joao-pink">MILHÕES</strong> de visualizações e <strong className="text-joao-pink">CLASSES A, B e C</strong>.
           </p>
         </div>
 
@@ -101,15 +100,15 @@ const PricingTable = () => {
         </div>
 
         {/* Campaign Package Highlight */}
-        <Card className="bg-gradient-to-r from-joao-pink to-joao-purple text-white mb-12 animate-fade-in">
-          <CardContent className="p-8 text-center">
-            <h3 className="text-3xl font-bold mb-4">{campaignPackage.title}</h3>
-            <p className="text-xl mb-4 opacity-90">{campaignPackage.description}</p>
-            <div className="text-4xl font-bold mb-6">{campaignPackage.price}</div>
+        <Card className="bg-gradient-to-r from-joao-pink to-joao-purple text-white mb-8 animate-fade-in">
+          <CardContent className="p-6 text-center">
+            <h3 className="text-2xl font-bold mb-3">{campaignPackage.title}</h3>
+            <p className="text-lg mb-3 opacity-90">{campaignPackage.description}</p>
+            <div className="text-3xl font-bold mb-4">{campaignPackage.price}</div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
               {campaignPackage.benefits.map((benefit, index) => (
-                <div key={index} className="bg-white/10 rounded-lg p-4">
+                <div key={index} className="bg-white/10 rounded-lg p-3">
                   <span className="text-sm font-medium">{benefit}</span>
                 </div>
               ))}
@@ -119,28 +118,28 @@ const PricingTable = () => {
               onClick={scrollToContact}
               variant="secondary"
               size="lg"
-              className="bg-white text-joao-pink hover:bg-gray-100 font-semibold px-8 py-4"
+              className="bg-white text-joao-pink hover:bg-gray-100 font-semibold px-6 py-3"
             >
-              Solicitar Proposta Personalizada
+              Solicitar Proposta
             </Button>
           </CardContent>
         </Card>
 
         {/* Value Proposition */}
-        <div className="text-center bg-white rounded-2xl p-8 border-2 border-gray-100">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Por que investir em João Cris?</h3>
-          <div className="grid md:grid-cols-3 gap-6">
+        <div className="text-center bg-white rounded-2xl p-6 border-2 border-gray-100">
+          <h3 className="text-xl font-bold text-gray-900 mb-3">Por que investir em João Cris?</h3>
+          <div className="grid md:grid-cols-3 gap-4">
             <div>
-              <div className="text-joao-pink text-3xl font-bold mb-2">+3.4M</div>
-              <div className="text-gray-600">Seguidores genuínos e engajados</div>
+              <div className="text-joao-pink text-2xl font-bold mb-1">+3.4M</div>
+              <div className="text-gray-600 text-sm">Seguidores <strong>CLASSES A, B, C</strong></div>
             </div>
             <div>
-              <div className="text-joao-pink text-3xl font-bold mb-2">9.5M</div>
-              <div className="text-gray-600">Visualizações por vídeo no YouTube</div>
+              <div className="text-joao-pink text-2xl font-bold mb-1">9.5M</div>
+              <div className="text-gray-600 text-sm">Views por vídeo YouTube</div>
             </div>
             <div>
-              <div className="text-joao-pink text-3xl font-bold mb-2">20K+</div>
-              <div className="text-gray-600">Visualizações mínimas por Reels</div>
+              <div className="text-joao-pink text-2xl font-bold mb-1">20K+</div>
+              <div className="text-gray-600 text-sm">Views mínimas por Reels</div>
             </div>
           </div>
         </div>
