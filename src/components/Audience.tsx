@@ -30,35 +30,34 @@ const Audience = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 lg:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-8 lg:mb-16 animate-fade-in">
+          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
             Perfil do <span className="gradient-text">Público</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Uma audiência engajada que se conecta profundamente com mensagens de 
-            superação, entretenimento e conteúdo positivo.
+          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+            Audiência altamente engajada com potencial de conversão comprovado.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-8">
           {audienceFeatures.map((feature, index) => (
             <Card 
               key={index}
               className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-joao-pink animate-fade-in text-center"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <CardContent className="p-6">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-joao-pink transition-colors">
+              <CardContent className="p-4 lg:p-6">
+                <div className="text-3xl lg:text-4xl mb-3">{feature.icon}</div>
+                <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 group-hover:text-joao-pink transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-sm lg:text-base text-gray-600 mb-3 leading-relaxed">
                   {feature.description}
                 </p>
-                <div className="inline-block px-3 py-1 bg-gradient-to-r from-joao-pink/10 to-joao-purple/10 rounded-full">
-                  <span className="text-sm font-semibold gradient-text">
+                <div className="inline-block px-2 py-1 bg-gradient-to-r from-joao-pink/10 to-joao-purple/10 rounded-full">
+                  <span className="text-xs lg:text-sm font-semibold gradient-text">
                     {feature.highlight}
                   </span>
                 </div>

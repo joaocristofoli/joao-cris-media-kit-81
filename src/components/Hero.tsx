@@ -41,28 +41,18 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                onClick={scrollToContact}
-                size="lg"
-                className="gradient-bg hover:opacity-90 transition-opacity text-white font-semibold px-8 py-4"
-              >
-                Entre em Contato
-              </Button>
-            </div>
-
-            <div className="flex items-center justify-center lg:justify-start space-x-6 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
               <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">+3.4M</div>
-                <div className="text-sm text-gray-600">Seguidores</div>
+                <div className="text-2xl font-bold gradient-text">+3.4</div>
+                <div className="text-sm text-gray-600">Milhões de Seguidores</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">+50M</div>
-                <div className="text-sm text-gray-600">Visualizações</div>
+                <div className="text-2xl font-bold gradient-text">+50</div>
+                <div className="text-sm text-gray-600">Milhões de Views</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">9.5M</div>
-                <div className="text-sm text-gray-600">Views/Vídeo</div>
+                <div className="text-2xl font-bold gradient-text">9.5</div>
+                <div className="text-sm text-gray-600">Milhões/Vídeo</div>
               </div>
             </div>
           </div>
