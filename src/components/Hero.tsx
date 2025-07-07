@@ -1,7 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 
+console.log('Hero component loaded'); // Debug log
+
 const Hero = () => {
+  console.log('Hero component rendering...'); // Debug log
+  
   const scrollToContact = () => {
     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -19,6 +23,11 @@ const Hero = () => {
                 src="/lovable-uploads/f0744d5c-e940-44f6-bff7-5f8ad6372674.png"
                 alt="João Cris - Influenciador de Fé e Superação"
                 className="relative w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full border-4 border-white shadow-2xl animate-fade-in"
+                onError={(e) => {
+                  console.error('Image failed to load:', e);
+                  e.currentTarget.style.display = 'none';
+                }}
+                onLoad={() => console.log('Image loaded successfully')}
               />
             </div>
           </div>

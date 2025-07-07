@@ -1,7 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 
+console.log('Header component loaded'); // Debug log
+
 const Header = () => {
+  console.log('Header component rendering...'); // Debug log
+  
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };

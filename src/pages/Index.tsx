@@ -7,6 +7,7 @@ import Audience from "@/components/Audience";
 import Partners from "@/components/Partners";
 import PricingTable from "@/components/PricingTable";
 import Contact from "@/components/Contact";
+import TestComponent from "@/components/TestComponent";
 
 console.log('Index page loaded'); // Debug log
 
@@ -15,6 +16,7 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
+      <TestComponent />
       <Header />
       <Hero />
       <About />
