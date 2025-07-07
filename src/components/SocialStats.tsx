@@ -49,19 +49,12 @@ const SocialStats = () => {
     <section id="numeros" className="py-12 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Números das <span className="gradient-text">Redes Sociais</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <span className="gradient-text">3.4 Milhões</span> de Seguidores
           </h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8 font-semibold">
-            Alcance comprovado para maximizar o ROI da sua marca
+            Alcance garantido para sua marca
           </p>
-          
-          {/* Total Impact */}
-          <div className="inline-block p-4 bg-gradient-to-r from-joao-pink to-joao-purple rounded-2xl text-white mb-8 shadow-lg border-2 border-white">
-            <div className="text-3xl font-bold mb-1">+3.4</div>
-            <div className="text-lg font-semibold mb-1">MILHÕES</div>
-            <div className="text-sm opacity-90">Total de Seguidores</div>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">

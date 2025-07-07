@@ -21,7 +21,7 @@ const Partners = () => {
     }
   }, []);
 
-  const futurePartners = Array(8).fill({ name: "Futuro Parceiro", logo: "+" });
+  const futurePartners = Array(4).fill({ name: "Futuro Parceiro", logo: "+" });
 
   return (
     <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
@@ -63,7 +63,7 @@ const Partners = () => {
         {/* Espaço para Futuros Parceiros */}
         <div>
           <h3 className="text-xl font-bold text-center text-gray-800 mb-8">Próximos Parceiros</h3>
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-4 max-w-6xl mx-auto">
+          <div className="flex justify-center gap-4 max-w-2xl mx-auto">
             {futurePartners.map((partner, index) => (
               <div 
                 key={index}
