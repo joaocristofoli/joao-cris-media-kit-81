@@ -14,7 +14,7 @@ const SocialStats = () => {
     {
       platform: "YouTube",
       handle: "@joaocristofoli",
-      followers: "~1M",
+      followers: "1M",
       metric: "até 9.5M views/vídeo",
       color: "from-red-500 to-red-600",
       icon: "▶️"
@@ -52,14 +52,15 @@ const SocialStats = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Números das <span className="gradient-text">Redes Sociais</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8 font-semibold">
             Alcance comprovado para maximizar o ROI da sua marca
           </p>
           
           {/* Total Impact */}
-          <div className="inline-block p-4 bg-gradient-to-r from-joao-pink to-joao-purple rounded-2xl text-white mb-8">
-            <div className="text-3xl font-bold mb-1">+3.4M</div>
-            <div className="text-base opacity-90">Total de Seguidores</div>
+          <div className="inline-block p-6 bg-gradient-to-r from-joao-pink to-joao-purple rounded-3xl text-white mb-8 shadow-2xl border-4 border-white">
+            <div className="text-5xl font-black mb-2">+3.4</div>
+            <div className="text-2xl font-bold mb-1">MILHÕES</div>
+            <div className="text-lg opacity-90">Total de Seguidores</div>
           </div>
         </div>
 

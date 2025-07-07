@@ -41,21 +41,21 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/20 text-center hover:shadow-xl transition-all">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6">
+              <div className="bg-gradient-to-br from-joao-pink/20 to-joao-purple/20 backdrop-blur-sm rounded-2xl p-4 shadow-xl border-2 border-joao-pink/30 text-center hover:shadow-2xl hover:scale-105 transition-all">
                 <div className="text-3xl font-bold gradient-text">+3.4</div>
                 <div className="text-lg font-semibold text-joao-pink">MILHÕES</div>
-                <div className="text-sm text-gray-600">Seguidores</div>
+                <div className="text-sm text-gray-700 font-medium">Seguidores</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/20 text-center hover:shadow-xl transition-all">
-                <div className="text-3xl font-bold gradient-text">+50</div>
+              <div className="bg-gradient-to-br from-joao-purple/20 to-joao-pink/20 backdrop-blur-sm rounded-2xl p-4 shadow-xl border-2 border-joao-purple/30 text-center hover:shadow-2xl hover:scale-105 transition-all">
+                <div className="text-3xl font-bold gradient-text">+500</div>
                 <div className="text-lg font-semibold text-joao-pink">MILHÕES</div>
-                <div className="text-sm text-gray-600">Views</div>
+                <div className="text-sm text-gray-700 font-medium">Views Totais</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/20 text-center hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-br from-joao-pink/20 to-joao-purple/20 backdrop-blur-sm rounded-2xl p-4 shadow-xl border-2 border-joao-pink/30 text-center hover:shadow-2xl hover:scale-105 transition-all sm:col-span-2 lg:col-span-1">
                 <div className="text-3xl font-bold gradient-text">9.5</div>
                 <div className="text-lg font-semibold text-joao-pink">MILHÕES</div>
-                <div className="text-sm text-gray-600">Views/Vídeo</div>
+                <div className="text-sm text-gray-700 font-medium">Views/Vídeo</div>
               </div>
             </div>
           </div>

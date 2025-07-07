@@ -41,33 +41,37 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-joao-pink animate-fade-in">
-            <CardContent className="p-6 text-center">
-              <div className="text-3xl mb-3">🏥</div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-joao-pink transition-colors">
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <Card className="group hover:shadow-2xl transition-all duration-300 border-3 border-red-200 hover:border-red-400 animate-fade-in bg-gradient-to-br from-red-50 to-orange-50">
+            <CardContent className="p-8 text-center">
+              <div className="text-5xl mb-4">🏥</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-600 transition-colors">
                 O Acidente + Cirurgia
               </h3>
-              <p className="text-gray-600 mb-3 text-sm leading-relaxed">
-                Acidente com monociclo, 9 dias em coma, cirurgia complexa com crânio na barriga.
+              <p className="text-gray-700 mb-4 text-base leading-relaxed font-medium">
+                Um acidente que mudou tudo: <strong className="text-red-600">9 dias em coma</strong>, uma cirurgia 
+                complexa onde meu crânio ficou <strong className="text-red-600">3 meses na barriga</strong>. 
+                Uma experiência que transformou dor em propósito.
               </p>
-              <div className="inline-block px-2 py-1 bg-gradient-to-r from-joao-pink/10 to-joao-purple/10 rounded-full">
-                <span className="text-xs font-semibold gradient-text">9 dias em coma</span>
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-full border border-red-300">
+                <span className="text-sm font-bold text-red-700">Superação Real</span>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-joao-pink animate-fade-in">
-            <CardContent className="p-6 text-center">
-              <div className="text-3xl mb-3">📱</div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-joao-pink transition-colors">
-                Viral + Impacto
+          <Card className="group hover:shadow-2xl transition-all duration-300 border-3 border-purple-200 hover:border-purple-400 animate-fade-in bg-gradient-to-br from-purple-50 to-pink-50">
+            <CardContent className="p-8 text-center">
+              <div className="text-5xl mb-4">📱</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors">
+                Viral + Profissional
               </h3>
-              <p className="text-gray-600 mb-3 text-sm leading-relaxed">
-                História compartilhada viralizou, alcançando milhões e inspirando pessoas.
+              <p className="text-gray-700 mb-4 text-base leading-relaxed font-medium">
+                <strong className="text-purple-600">3 anos criando conteúdo profissional</strong> que inspira milhões. 
+                História autêntica que viralizou com <strong className="text-purple-600">+9.5M visualizações</strong>, 
+                construindo uma audiência fiel e engajada.
               </p>
-              <div className="inline-block px-2 py-1 bg-gradient-to-r from-joao-pink/10 to-joao-purple/10 rounded-full">
-                <span className="text-xs font-semibold gradient-text">+9.5M visualizações</span>
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full border border-purple-300">
+                <span className="text-sm font-bold text-purple-700">Criador Profissional</span>
               </div>
             </CardContent>
           </Card>
