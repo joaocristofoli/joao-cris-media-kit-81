@@ -57,10 +57,10 @@ const SocialStats = () => {
           </p>
           
           {/* Total Impact */}
-          <div className="inline-block p-6 bg-gradient-to-r from-joao-pink to-joao-purple rounded-3xl text-white mb-8 shadow-2xl border-4 border-white">
-            <div className="text-5xl font-black mb-2">+3.4</div>
-            <div className="text-2xl font-bold mb-1">MILHÕES</div>
-            <div className="text-lg opacity-90">Total de Seguidores</div>
+          <div className="inline-block p-4 bg-gradient-to-r from-joao-pink to-joao-purple rounded-2xl text-white mb-8 shadow-lg border-2 border-white">
+            <div className="text-3xl font-bold mb-1">+3.4</div>
+            <div className="text-lg font-semibold mb-1">MILHÕES</div>
+            <div className="text-sm opacity-90">Total de Seguidores</div>
           </div>
         </div>
 
