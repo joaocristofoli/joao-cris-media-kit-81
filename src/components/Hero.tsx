@@ -50,20 +50,17 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-gray-200 text-center hover:shadow-xl transition-all">
-                <div className="text-3xl font-bold text-gray-900">+3.4</div>
-                <div className="text-lg font-semibold text-gray-700">MILHÕES</div>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-6">
+              <div className="bg-gradient-to-br from-joao-pink/5 to-joao-purple/5 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-joao-pink/10 text-center hover:shadow-2xl transition-all group">
+                <div className="text-4xl font-bold gradient-text mb-2">+3.4M</div>
                 <div className="text-sm text-gray-600 font-medium">Seguidores</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-gray-200 text-center hover:shadow-xl transition-all">
-                <div className="text-3xl font-bold text-gray-900">+500</div>
-                <div className="text-lg font-semibold text-gray-700">MILHÕES</div>
+              <div className="bg-gradient-to-br from-joao-pink/5 to-joao-purple/5 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-joao-pink/10 text-center hover:shadow-2xl transition-all group">
+                <div className="text-4xl font-bold gradient-text mb-2">+500M</div>
                 <div className="text-sm text-gray-600 font-medium">Views Totais</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-gray-200 text-center hover:shadow-xl transition-all sm:col-span-2 lg:col-span-1">
-                <div className="text-3xl font-bold text-gray-900">9.5</div>
-                <div className="text-lg font-semibold text-gray-700">MILHÕES</div>
+              <div className="bg-gradient-to-br from-joao-pink/5 to-joao-purple/5 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-joao-pink/10 text-center hover:shadow-2xl transition-all group">
+                <div className="text-4xl font-bold gradient-text mb-2">9.5M</div>
                 <div className="text-sm text-gray-600 font-medium">Views/Vídeo</div>
               </div>
             </div>

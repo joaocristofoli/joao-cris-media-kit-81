@@ -21,7 +21,7 @@ const Partners = () => {
     }
   }, []);
 
-  const futurePartners = Array(4).fill({ name: "Futuro Parceiro", logo: "+" });
+  const futurePartners = Array(2).fill({ name: "Futuro Parceiro", logo: "+" });
 
   return (
     <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
