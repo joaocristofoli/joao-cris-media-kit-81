@@ -68,10 +68,8 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Custom João Cris brand colors
-				'joao-pink': '#ff1493',
-				'joao-purple': '#8b5cf6',
-				'joao-gradient-start': '#ff1493',
-				'joao-gradient-end': '#8b5cf6',
+				'joao-pink': 'hsl(var(--joao-pink))',
+				'joao-purple': 'hsl(var(--joao-purple))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

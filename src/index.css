@@ -39,6 +39,10 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
+    /* João Cris brand colors in HSL format */
+    --joao-pink: 330 81% 60%;
+    --joao-purple: 271 81% 56%;
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
