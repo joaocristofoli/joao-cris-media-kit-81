@@ -100,7 +100,7 @@ const PricingTable = () => {
         </div>
 
         {/* Campaign Package Highlight */}
-        <Card className="bg-gradient-to-r from-joao-pink to-joao-purple text-white mb-8 animate-fade-in">
+        <Card className="bg-gradient-to-r from-joao-pink/95 to-joao-purple/95 text-white mb-8 animate-fade-in">
           <CardContent className="p-6 text-center">
             <h3 className="text-2xl font-bold mb-3">{campaignPackage.title}</h3>
             <p className="text-lg mb-3 opacity-90">{campaignPackage.description}</p>
