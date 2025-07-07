@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - João Cris Media Kit</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .joao-pink { color: #ec4899; }
+        .joao-purple { color: #8b5cf6; }
+    </style>
+</head>
+<body>
+    <div id="admin-root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const AdminPage = () => {
+            const [partners, setPartners] = useState([]);
+            const [toast, setToast] = useState('');
+
+            useEffect(() => {
+                const savedPartners = localStorage.getItem('partners');
+                if (savedPartners) {
+                    setPartners(JSON.parse(savedPartners));
+                } else {
+                    setPartners([
+                        { name: "Parceiro 1", logo: "🤝" },
+                        { name: "Parceiro 2", logo: "🤝" },
+                        { name: "Parceiro 3", logo: "🤝" },
+                        { name: "Parceiro 4", logo: "🤝" }
+                    ]);
+                }
+            }, []);
+
+            const savePartners = () => {
+                localStorage.setItem('partners', JSON.stringify(partners));
+                setToast('✅ Parceiros salvos com sucesso!');
+                setTimeout(() => setToast(''), 3000);
+            };
+
+            const updatePartner = (index, field, value) => {
+                const newPartners = [...partners];
+                newPartners[index] = { ...newPartners[index], [field]: value };
+                setPartners(newPartners);
+            };
+
+            const addPartner = () => {
+                setPartners([...partners, { name: "Novo Parceiro", logo: "🤝" }]);
+            };
+
+            const removePartner = (index) => {
+                const newPartners = partners.filter((_, i) => i !== index);
+                setPartners(newPartners);
+            };
+
+            return (
+                <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white p-4">
+                    <div className="container mx-auto max-w-4xl">
+                        <div className="mb-8">
+                            <a href="index.html" className="inline-flex items-center gap-2 text-pink-500 hover:text-purple-600 transition-colors">
+                                ← Voltar ao Site
+                            </a>
+                        </div>
+
+                        {toast && (
+                            <div className="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50">
+                                {toast}
+                            </div>
+                        )}
+
+                        <div className="bg-white rounded-lg shadow-lg">
+                            <div className="p-6 border-b">
+                                <h1 className="text-2xl font-bold text-center">
+                                    Painel Admin - <span className="gradient-text">Parceiros</span>
+                                </h1>
+                            </div>
+                            <div className="p-6 space-y-6">
+                                <div className="flex justify-between items-center">
+                                    <h3 className="text-lg font-semibold">Gerenciar Parceiros</h3>
+                                    <div className="flex gap-2">
+                                        <button 
+                                            onClick={addPartner}
+                                            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                                        >
+                                            ➕ Adicionar
+                                        </button>
+                                        <button 
+                                            onClick={savePartners}
+                                            className="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-purple-600"
+                                        >
+                                            💾 Salvar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="grid gap-4">
+                                    {partners.map((partner, index) => (
+                                        <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                                                <div>
+                                                    <label className="block text-sm font-medium mb-1">Nome do Parceiro</label>
+                                                    <input
+                                                        type="text"
+                                                        value={partner.name}
+                                                        onChange={(e) => updatePartner(index, 'name', e.target.value)}
+                                                        className="w-full p-2 border border-gray-300 rounded"
+                                                        placeholder="Nome do parceiro"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium mb-1">Logo (URL ou emoji)</label>
+                                                    <input
+                                                        type="text"
+                                                        value={partner.logo}
+                                                        onChange={(e) => updatePartner(index, 'logo', e.target.value)}
+                                                        className="w-full p-2 border border-gray-300 rounded"
+                                                        placeholder="https://exemplo.com/logo.png ou 🤝"
+                                                    />
+                                                </div>
+                                                <div className="flex gap-2 items-center">
+                                                    <div className="w-12 h-12 bg-gradient-to-br from-pink-100 to-purple-100 rounded-full flex items-center justify-center border-2 border-pink-200">
+                                                        {partner.logo.startsWith('http') ? (
+                                                            <img src={partner.logo} alt={partner.name} className="w-8 h-8 object-cover rounded-full" />
+                                                        ) : (
+                                                            <span className="text-lg">{partner.logo}</span>
+                                                        )}
+                                                    </div>
+                                                    <button 
+                                                        onClick={() => removePartner(index)}
+                                                        className="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                                                    >
+                                                        🗑️
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="p-4 bg-blue-50 rounded-lg">
+                                    <h4 className="font-semibold text-blue-900 mb-2">💡 Dicas:</h4>
+                                    <ul className="text-blue-800 text-sm space-y-1">
+                                        <li>• Use URLs de imagens para logos reais</li>
+                                        <li>• Use emojis como placeholders</li>
+                                        <li>• Clique em "Salvar" para aplicar as mudanças</li>
+                                        <li>• As mudanças ficam salvas no seu navegador</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<AdminPage />, document.getElementById('admin-root'));
+    </script>
+</body>
+</html>
