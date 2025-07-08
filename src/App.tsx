@@ -7,7 +7,6 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import Dashboard from "./pages/Dashboard";
-import Test from "./pages/Test";
 import NotFound from "./pages/NotFound";
 
 console.log('App.tsx loaded'); // Debug log
@@ -27,7 +26,6 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/test" element={<Test />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 console.log('Header component loaded'); // Debug log
 
@@ -34,6 +35,12 @@ const Header = () => {
             <button onClick={() => scrollToSection('investimento')} className="text-gray-700 hover:text-joao-pink transition-colors">
               Investimento
             </button>
+            <Link to="/admin" className="text-gray-700 hover:text-joao-pink transition-colors text-sm">
+              Admin
+            </Link>
+            <Link to="/dashboard" className="text-gray-700 hover:text-joao-pink transition-colors text-sm">
+              Dashboard
+            </Link>
             <Button 
               onClick={() => scrollToSection('numeros')}
               className="gradient-bg hover:opacity-90 transition-opacity"

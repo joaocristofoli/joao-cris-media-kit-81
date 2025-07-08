@@ -21,13 +21,16 @@ const Admin = () => {
     if (savedPartners) {
       setPartners(JSON.parse(savedPartners));
     } else {
-      // Parceiros padrão
-      setPartners([
+      // Parceiros padrão atualizados
+      const defaultPartners = [
         { name: "Burger King", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi6PhXrEEszanWfEbYteDU5BS9AOjMGcz9Iy3jPPGy6Ey4HZRdUGb1Dhg&s=10" },
         { name: "Bluefit", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6VqhlxfnzU4DJ37EZN5t9WjJ1eUnRXa_Lnum9yaDXNnrvFmOwk5DXJRpt&s=10" },
         { name: "Filezão", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg2USjgVa5e4PsxK_QoCpR_Mgpd6j0rbPpLPorwRDtM-i07dx6IHJu9s&s=10" },
         { name: "Santo Mana", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT434W22BF8Jq1Inm081GusZz1_6BBotKxdDQ&s" }
-      ]);
+      ];
+      setPartners(defaultPartners);
+      // Salva os parceiros padrão no localStorage para sincronização
+      localStorage.setItem('partners', JSON.stringify(defaultPartners));
     }
   }, []);
 
