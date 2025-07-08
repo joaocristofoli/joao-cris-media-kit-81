@@ -18,7 +18,7 @@ const Hero = () => {
           {/* Foto */}
           <div className="flex-1 flex justify-center">
             <img 
-              src="/lovable-uploads/f0744d5c-e940-44f6-bff7-5f8ad6372674.png"
+              src="https://yt3.googleusercontent.com/K3XAqyuYQ_UQdvC-gzaK7R8HSsbFd8RKFleV9g61rfz0kp1hA1bb5pfQFXPz6I5iQRwJRip6KQ=s900-c-k-c0x00ffffff-no-rj"
               alt="João Cris - Influenciador de Fé e Superação"
               className="w-64 h-64 lg:w-80 lg:h-80 object-cover rounded-full shadow-lg"
               onError={(e) => {

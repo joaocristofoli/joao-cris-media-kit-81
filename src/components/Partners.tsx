@@ -21,7 +21,7 @@ const Partners = () => {
     }
   }, []);
 
-  const futurePartners = Array(2).fill({ name: "Futuro Parceiro", logo: "+" });
+  const futurePartners = [{ name: "Futuro Parceiro", logo: "+" }];
 
   return (
     <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
@@ -63,14 +63,14 @@ const Partners = () => {
         {/* Espaço para Futuros Parceiros */}
         <div>
           <h3 className="text-xl font-bold text-center text-gray-800 mb-8">Próximos Parceiros</h3>
-          <div className="flex justify-center gap-4 max-w-2xl mx-auto">
+          <div className="flex justify-center max-w-2xl mx-auto">
             {futurePartners.map((partner, index) => (
               <div 
                 key={index}
-                className="w-12 h-12 bg-gray-100 hover:bg-gradient-to-br hover:from-joao-pink/10 hover:to-joao-purple/10 rounded-full flex items-center justify-center text-gray-400 hover:text-joao-pink border-2 border-dashed border-gray-300 hover:border-joao-pink/50 transition-all cursor-pointer animate-fade-in"
+                className="w-20 h-20 bg-gray-100 hover:bg-gradient-to-br hover:from-joao-pink/10 hover:to-joao-purple/10 rounded-full flex items-center justify-center text-gray-400 hover:text-joao-pink border-2 border-dashed border-gray-300 hover:border-joao-pink/50 transition-all cursor-pointer animate-fade-in"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <span className="text-lg font-bold">{partner.logo}</span>
+                <span className="text-2xl font-bold">{partner.logo}</span>
               </div>
             ))}
           </div>
