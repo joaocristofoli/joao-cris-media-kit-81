@@ -28,7 +28,7 @@ const Partners = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Nossos <span className="gradient-text">Parceiros</span>
+            Meus <span className="gradient-text">Parceiros</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Marcas que confiam no meu alcance e engajamento para <strong className="text-joao-pink">maximizar resultados</strong>
