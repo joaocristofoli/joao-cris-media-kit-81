@@ -51,15 +51,6 @@ const Contact = () => {
                   </a>
                 </div>
                 
-                <div>
-                  <h4 className="font-semibold text-lg mb-2">E-mail Comercial</h4>
-                  <a 
-                    href={`mailto:${contactInfo.email}`}
-                    className="text-white/90 hover:text-white transition-colors underline"
-                  >
-                    {contactInfo.email}
-                  </a>
-                </div>
                 
                 <div>
                   <h4 className="font-semibold text-lg mb-2">CNPJ</h4>
@@ -67,17 +58,11 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <Button 
-                  className="flex-1 bg-white text-joao-pink hover:bg-white/90 font-semibold"
-                  onClick={() => window.location.href = `mailto:${contactInfo.email}`}
-                >
-                  Enviar E-mail
-                </Button>
+              <div className="flex justify-center pt-6">
                 <Button 
                   variant="outline" 
-                  className="flex-1 border-white bg-white text-joao-pink hover:bg-white/90 hover:text-joao-pink"
-                  onClick={() => window.open(`https://wa.me/55${contactInfo.phone.replace(/\D/g, '')}`, '_blank')}
+                  className="border-white bg-white text-joao-pink hover:bg-white/90 hover:text-joao-pink font-semibold px-8 py-3"
+                  onClick={() => window.open(`https://wa.me/55${contactInfo.phone.replace(/\D/g, '')}?text=Oii%20João%2C%20queria%20conversar%20contigo%20sobre%20publicidade`, '_blank')}
                 >
                   WhatsApp
                 </Button>
@@ -132,7 +117,7 @@ const Contact = () => {
             <Button 
               size="lg"
               className="bg-white text-joao-pink hover:bg-white/90 font-semibold px-6 py-3"
-              onClick={() => window.location.href = `mailto:${contactInfo.email}?subject=Proposta de Parceria - João Cris`}
+              onClick={() => window.open(`https://wa.me/55${contactInfo.phone.replace(/\D/g, '')}?text=Oii%20João%2C%20queria%20conversar%20contigo%20sobre%20publicidade`, '_blank')}
             >
               Vamos Conversar!
             </Button>

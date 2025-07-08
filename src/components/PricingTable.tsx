@@ -41,8 +41,8 @@ const PricingTable = () => {
     ]
   };
 
-  const scrollToContact = () => {
-    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToWhatsApp = () => {
+    window.open('https://wa.me/5511973964702?text=Oii%20João%2C%20queria%20conversar%20contigo%20sobre%20publicidade', '_blank');
   };
 
   return (
@@ -114,7 +114,7 @@ const PricingTable = () => {
             </div>
             
             <Button 
-              onClick={scrollToContact}
+              onClick={scrollToWhatsApp}
               variant="secondary"
               size="lg"
               className="bg-white text-joao-pink hover:bg-gray-100 font-semibold px-6 py-3"
