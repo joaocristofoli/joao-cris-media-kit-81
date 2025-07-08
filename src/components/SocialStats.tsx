@@ -1,5 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import facebookLogo from "@/assets/facebook-logo.png";
 import instagramLogo from "@/assets/instagram-logo.png";
 import youtubeLogo from "@/assets/youtube-logo.png";
@@ -7,12 +9,29 @@ import kwaiLogo from "@/assets/kwai-logo.jpg";
 import tiktokLogo from "@/assets/tiktok-logo.png";
 
 const SocialStats = () => {
+  // Dados demográficos de idade (corrigindo para incluir 4-17 anos = 20%)
+  const ageData = [
+    { age: "4-17", percentage: 20, color: "#E3F2FD" },
+    { age: "18-24", percentage: 25.8, color: "#BBDEFB" },
+    { age: "25-34", percentage: 32.8, color: "#90CAF9" },
+    { age: "35-44", percentage: 18.6, color: "#64B5F6" },
+    { age: "45-54", percentage: 8.3, color: "#42A5F5" },
+    { age: "55-64", percentage: 3.4, color: "#2196F3" },
+    { age: "65+", percentage: 1.6, color: "#1E88E5" }
+  ];
+
+  // Dados de gênero
+  const genderData = [
+    { name: "Mulheres", value: 50.2, color: "#1565C0" },
+    { name: "Homens", value: 49.8, color: "#64B5F6" }
+  ];
+
   const socialData = [
     {
       platform: "Instagram",
       handle: "@eujoaocris",
       followers: "500K",
-      metric: "20M alcance mensal",
+      metric: "20 milhões alcance mensal",
       color: "from-purple-500 to-pink-500",
       logo: instagramLogo
     },
@@ -62,12 +81,12 @@ const SocialStats = () => {
           </p>
         </div>
 
-        {/* Instagram destaque no mobile */}
+        {/* Instagram destaque no mobile com dados demográficos */}
         <div className="block md:hidden mb-6">
           <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-joao-pink animate-fade-in overflow-hidden max-w-sm mx-auto">
             <CardContent className="p-0">
               <div className={`h-2 bg-gradient-to-r ${socialData[0].color}`}></div>
-              <div className="p-4">
+              <div className="p-4 space-y-4">
                 <div className="flex items-center justify-between mb-3">
                   <img src={socialData[0].logo} alt={socialData[0].platform} className="w-8 h-8 object-contain" />
                   <h3 className="text-lg font-bold text-gray-900 group-hover:text-joao-pink transition-colors">
@@ -79,6 +98,73 @@ const SocialStats = () => {
                   <div className="text-xs text-gray-600">{socialData[0].handle}</div>
                   <div className="text-2xl font-bold gradient-text">{socialData[0].followers}</div>
                   <div className="text-xs text-gray-600">{socialData[0].metric}</div>
+                </div>
+
+                {/* Perfil do Público */}
+                <div className="border-t pt-3">
+                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Perfil do Público</h4>
+                  <p className="text-xs text-gray-600 mb-3">
+                    Audiência altamente engajada e <strong className="text-joao-pink">muito diversa</strong> com potencial de conversão comprovado.
+                  </p>
+
+                  {/* Faixa Etária */}
+                  <div className="mb-3">
+                    <h5 className="text-xs font-medium text-gray-800 mb-2">Faixa Etária</h5>
+                    <div className="space-y-1">
+                      {ageData.map((item, index) => (
+                        <div key={index} className="flex items-center justify-between text-xs">
+                          <div className="flex items-center gap-2">
+                            <div 
+                              className="w-2 h-2 rounded-full" 
+                              style={{ backgroundColor: item.color }}
+                            ></div>
+                            <span className="text-gray-600">{item.age} anos</span>
+                          </div>
+                          <span className="font-medium text-gray-900">{item.percentage}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Gênero */}
+                  <div>
+                    <h5 className="text-xs font-medium text-gray-800 mb-2">Gênero</h5>
+                    <div className="flex items-center justify-center mb-2">
+                      <div className="w-16 h-16">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <PieChart>
+                            <Pie
+                              data={genderData}
+                              cx="50%"
+                              cy="50%"
+                              innerRadius={20}
+                              outerRadius={30}
+                              dataKey="value"
+                              stroke="none"
+                            >
+                              {genderData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={entry.color} />
+                              ))}
+                            </Pie>
+                          </PieChart>
+                        </ResponsiveContainer>
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      {genderData.map((item, index) => (
+                        <div key={index} className="flex items-center justify-between text-xs">
+                          <div className="flex items-center gap-2">
+                            <div 
+                              className="w-2 h-2 rounded-full" 
+                              style={{ backgroundColor: item.color }}
+                            ></div>
+                            <span className="text-gray-600">{item.name}</span>
+                          </div>
+                          <span className="font-medium text-gray-900">{item.value}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -114,33 +200,124 @@ const SocialStats = () => {
           ))}
         </div>
 
-        {/* Grid original para desktop */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-          {socialData.map((social, index) => (
-            <Card 
-              key={index}
-              className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-joao-pink animate-fade-in overflow-hidden"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardContent className="p-0">
-                <div className={`h-2 bg-gradient-to-r ${social.color}`}></div>
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <img src={social.logo} alt={social.platform} className="w-8 h-8 object-contain" />
-                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-joao-pink transition-colors">
-                      {social.platform}
-                    </h3>
+        {/* Grid para desktop - Instagram com destaque */}
+        <div className="hidden md:grid md:grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* Instagram com dados demográficos - destaque */}
+          <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-joao-pink animate-fade-in overflow-hidden lg:col-span-1">
+            <CardContent className="p-0">
+              <div className={`h-2 bg-gradient-to-r ${socialData[0].color}`}></div>
+              <div className="p-6 space-y-4">
+                <div className="flex items-center justify-between mb-3">
+                  <img src={socialData[0].logo} alt={socialData[0].platform} className="w-10 h-10 object-contain" />
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-joao-pink transition-colors">
+                    {socialData[0].platform}
+                  </h3>
+                </div>
+                
+                <div className="space-y-1 text-center">
+                  <div className="text-sm text-gray-600">{socialData[0].handle}</div>
+                  <div className="text-3xl font-bold gradient-text">{socialData[0].followers}</div>
+                  <div className="text-sm text-gray-600">{socialData[0].metric}</div>
+                </div>
+
+                {/* Perfil do Público */}
+                <div className="border-t pt-4">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Perfil do Público</h4>
+                  <p className="text-sm text-gray-600 mb-4">
+                    Audiência altamente engajada e <strong className="text-joao-pink">muito diversa</strong> com potencial de conversão comprovado.
+                  </p>
+
+                  {/* Faixa Etária */}
+                  <div className="mb-4">
+                    <h5 className="text-sm font-medium text-gray-800 mb-3">Faixa Etária</h5>
+                    <div className="space-y-2">
+                      {ageData.map((item, index) => (
+                        <div key={index} className="flex items-center justify-between text-sm">
+                          <div className="flex items-center gap-2">
+                            <div 
+                              className="w-3 h-3 rounded-full" 
+                              style={{ backgroundColor: item.color }}
+                            ></div>
+                            <span className="text-gray-600">{item.age} anos</span>
+                          </div>
+                          <span className="font-medium text-gray-900">{item.percentage}%</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  
-                  <div className="space-y-1">
-                    <div className="text-xs text-gray-600">{social.handle}</div>
-                    <div className="text-2xl font-bold gradient-text">{social.followers}</div>
-                    <div className="text-xs text-gray-600">{social.metric}</div>
+
+                  {/* Gênero */}
+                  <div>
+                    <h5 className="text-sm font-medium text-gray-800 mb-3">Gênero</h5>
+                    <div className="flex items-center justify-center mb-3">
+                      <div className="w-24 h-24">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <PieChart>
+                            <Pie
+                              data={genderData}
+                              cx="50%"
+                              cy="50%"
+                              innerRadius={30}
+                              outerRadius={45}
+                              dataKey="value"
+                              stroke="none"
+                            >
+                              {genderData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={entry.color} />
+                              ))}
+                            </Pie>
+                          </PieChart>
+                        </ResponsiveContainer>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      {genderData.map((item, index) => (
+                        <div key={index} className="flex items-center justify-between text-sm">
+                          <div className="flex items-center gap-2">
+                            <div 
+                              className="w-3 h-3 rounded-full" 
+                              style={{ backgroundColor: item.color }}
+                            ></div>
+                            <span className="text-gray-600">{item.name}</span>
+                          </div>
+                          <span className="font-medium text-gray-900">{item.value}%</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Outras redes sociais em grid menor */}
+          <div className="grid grid-cols-2 gap-4">
+            {socialData.slice(1).map((social, index) => (
+              <Card 
+                key={index}
+                className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-joao-pink animate-fade-in overflow-hidden"
+                style={{ animationDelay: `${(index + 1) * 0.1}s` }}
+              >
+                <CardContent className="p-0">
+                  <div className={`h-2 bg-gradient-to-r ${social.color}`}></div>
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <img src={social.logo} alt={social.platform} className="w-6 h-6 object-contain" />
+                      <h3 className="text-sm font-bold text-gray-900 group-hover:text-joao-pink transition-colors">
+                        {social.platform}
+                      </h3>
+                    </div>
+                    
+                    <div className="space-y-1 text-center">
+                      <div className="text-xs text-gray-600">{social.handle}</div>
+                      <div className="text-lg font-bold gradient-text">{social.followers}</div>
+                      <div className="text-xs text-gray-600">{social.metric}</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Instagram Highlight */}
