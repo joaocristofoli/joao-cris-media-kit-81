@@ -16,7 +16,7 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <h1 className="text-2xl font-bold gradient-text">João Cris</h1>
-            <span className="text-sm text-gray-600 hidden sm:block">Media Kit Digital</span>
+            <span className="text-sm text-gray-500">Media Kit Digital</span>
           </div>
           
           <div className="hidden md:flex items-center space-x-6">
