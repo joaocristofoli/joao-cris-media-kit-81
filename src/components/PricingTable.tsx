@@ -9,8 +9,7 @@ const PricingTable = () => {
       packages: [
         { format: "Combo Viral", deliverables: "1 Reels + 3 Stories", price: "R$ 4.000", highlight: true },
         { format: "Reels", deliverables: "Vídeo até 90s", price: "R$ 3.200" },
-        { format: "Stories", deliverables: "3 de 15s", price: "R$ 1.400" },
-        { format: "Feed", deliverables: "Imagem ou Carrossel", price: "R$ 6.000" }
+        { format: "Stories", deliverables: "3 de até 60s", price: "R$ 1.400" }
       ],
       color: "from-purple-500 to-pink-500"
     },
@@ -24,7 +23,7 @@ const PricingTable = () => {
     {
       platform: "YouTube",
       packages: [
-        { format: "Shorts", deliverables: "Até 60s", price: "R$ 2.000", highlight: true }
+        { format: "Shorts", deliverables: "Até 90s", price: "R$ 3.000", highlight: true }
       ],
       color: "from-red-500 to-red-600"
     }
@@ -33,7 +32,7 @@ const PricingTable = () => {
   const campaignPackage = {
     title: "Campanha Multiplataforma",
     description: "IG + TikTok + YT Shorts",
-    price: "R$ 8.500+",
+    price: "R$ 8.000+",
     benefits: [
       "Maior alcance e impacto",
       "Narrativa consistente",
@@ -54,7 +53,7 @@ const PricingTable = () => {
             Proposta de <span className="gradient-text">Investimento</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Valores de investimento para parcerias. Foco em <strong className="text-joao-pink">MILHÕES</strong> de visualizações e <strong className="text-joao-pink">CLASSES A, B e C</strong>.
+            Valores de investimento para parcerias. Foco em <strong className="text-joao-pink">MÁXIMO IMPACTO</strong> e <strong className="text-joao-pink">MILHÕES</strong> de visualizações garantidas.
           </p>
         </div>
 
@@ -131,7 +130,7 @@ const PricingTable = () => {
           <div className="grid md:grid-cols-3 gap-4">
             <div>
               <div className="text-joao-pink text-2xl font-bold mb-1">+3.4M</div>
-              <div className="text-gray-600 text-sm">Seguidores <strong>CLASSES A, B, C</strong></div>
+              <div className="text-gray-600 text-sm">Seguidores <strong>ALTAMENTE ENGAJADOS</strong></div>
             </div>
             <div>
               <div className="text-joao-pink text-2xl font-bold mb-1">9.5M</div>
