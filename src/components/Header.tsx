@@ -30,20 +30,20 @@ const Header = () => {
               Investimento
             </button>
             <Button 
-              onClick={() => scrollToSection('contato')}
+              onClick={() => scrollToSection('numeros')}
               className="gradient-bg hover:opacity-90 transition-opacity"
             >
-              Contato
+              Alcance
             </Button>
           </div>
 
           <div className="md:hidden">
             <Button 
-              onClick={() => scrollToSection('contato')}
+              onClick={() => scrollToSection('numeros')}
               size="sm"
-              className="gradient-bg hover:opacity-90 transition-opacity"
+              className="gradient-bg hover:opacity-90 transition-opacity text-xs px-2"
             >
-              Contato
+              Alcance
             </Button>
           </div>
         </nav>
