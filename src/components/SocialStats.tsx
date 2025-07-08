@@ -9,15 +9,15 @@ import kwaiLogo from "@/assets/kwai-logo.jpg";
 import tiktokLogo from "@/assets/tiktok-logo.png";
 
 const SocialStats = () => {
-  // Dados demográficos de idade (corrigindo para incluir 4-17 anos = 20%)
+  // Dados demográficos de idade (atualizados)
   const ageData = [
-    { age: "4-17", percentage: 20, color: "#E3F2FD" },
+    { age: "10-17", percentage: 17.5, color: "#E3F2FD" },
     { age: "18-24", percentage: 25.8, color: "#BBDEFB" },
-    { age: "25-34", percentage: 32.8, color: "#90CAF9" },
+    { age: "25-34", percentage: 31.5, color: "#90CAF9" },
     { age: "35-44", percentage: 18.6, color: "#64B5F6" },
     { age: "45-54", percentage: 8.3, color: "#42A5F5" },
     { age: "55-64", percentage: 3.4, color: "#2196F3" },
-    { age: "65+", percentage: 1.6, color: "#1E88E5" }
+    { age: "65+", percentage: 1.9, color: "#1E88E5" }
   ];
 
   // Dados de gênero
@@ -30,8 +30,8 @@ const SocialStats = () => {
     {
       platform: "Instagram",
       handle: "@eujoaocris",
-      followers: "500K",
-      metric: "20 milhões alcance mensal",
+      followers: "500 MIL",
+      metric: "20 MILHÕES alcance mensal",
       color: "from-purple-500 to-pink-500",
       logo: instagramLogo
     },
@@ -102,8 +102,8 @@ const SocialStats = () => {
 
                 {/* Perfil do Público */}
                 <div className="border-t pt-3">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Perfil do Público</h4>
-                  <p className="text-xs text-gray-600 mb-3">
+                  <h4 className="text-sm font-semibold text-gray-900 mb-2 text-center">Perfil do Público</h4>
+                  <p className="text-xs text-gray-600 mb-3 text-center">
                     Audiência altamente engajada e <strong className="text-joao-pink">muito diversa</strong> com potencial de conversão comprovado.
                   </p>
 
@@ -222,8 +222,8 @@ const SocialStats = () => {
 
                 {/* Perfil do Público */}
                 <div className="border-t pt-4">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Perfil do Público</h4>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3 text-center">Perfil do Público</h4>
+                  <p className="text-sm text-gray-600 mb-4 text-center">
                     Audiência altamente engajada e <strong className="text-joao-pink">muito diversa</strong> com potencial de conversão comprovado.
                   </p>
 
@@ -325,11 +325,11 @@ const SocialStats = () => {
           <h3 className="text-xl font-bold gradient-text mb-3">Destaque Instagram</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
-              <div className="text-2xl font-bold text-gray-900">500K</div>
+              <div className="text-2xl font-bold text-gray-900">500 MIL</div>
               <div className="text-xs text-gray-600">Seguidores</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-gray-900">20M</div>
+              <div className="text-2xl font-bold text-gray-900">20 MILHÕES</div>
               <div className="text-xs text-gray-600">Alcance Mensal</div>
             </div>
             <div>
