@@ -31,7 +31,7 @@ const Partners = () => {
             Nossos <span className="gradient-text">Parceiros</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Marcas que confiam no nosso alcance e engajamento para <strong className="text-joao-pink">maximizar resultados</strong>
+            Marcas que confiam no meu alcance e engajamento para <strong className="text-joao-pink">maximizar resultados</strong>
           </p>
         </div>
 
