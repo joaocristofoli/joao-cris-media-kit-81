@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -23,9 +24,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- React via CDN para funcionar sempre -->
+    <!-- React via CDN para funcionar localmente -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react-router-dom@6/dist/umd/react-router-dom.production.min.js"></script>
   </head>
 
   <body>
@@ -48,72 +50,12 @@
         }
       }(window.location))
       
-      // Site React completo funcionando 100%
+      // App React inline (funciona sempre)
       if (typeof React !== 'undefined' && typeof ReactDOM !== 'undefined') {
         const { useState, useEffect } = React;
+        const { HashRouter, Routes, Route } = ReactRouterDOM;
         
-        // Componente Header
-        function Header() {
-          return React.createElement('header', {
-            style: {
-              position: 'fixed',
-              top: 0,
-              width: '100%',
-              background: 'rgba(255, 255, 255, 0.95)',
-              backdropFilter: 'blur(10px)',
-              borderBottom: '1px solid #e5e7eb',
-              zIndex: 1000,
-              padding: '15px 0'
-            }
-          }, React.createElement('div', {
-            style: {
-              maxWidth: '1200px',
-              margin: '0 auto',
-              padding: '0 20px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }
-          }, [
-            React.createElement('div', {
-              key: 'logo',
-              style: {
-                fontSize: '24px',
-                fontWeight: 'bold',
-                background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }
-            }, 'João Cris'),
-            React.createElement('div', {
-              key: 'nav',
-              style: {
-                display: window.innerWidth >= 768 ? 'flex' : 'none',
-                gap: '30px'
-              }
-            }, [
-              React.createElement('a', { key: 'sobre', href: '#sobre', style: { textDecoration: 'none', color: '#374151', fontWeight: '500' } }, 'Sobre'),
-              React.createElement('a', { key: 'numeros', href: '#numeros', style: { textDecoration: 'none', color: '#374151', fontWeight: '500' } }, 'Números'),
-              React.createElement('a', { key: 'publico', href: '#publico', style: { textDecoration: 'none', color: '#374151', fontWeight: '500' } }, 'Público'),
-              React.createElement('a', { key: 'investimento', href: '#investimento', style: { textDecoration: 'none', color: '#374151', fontWeight: '500' } }, 'Investimento'),
-              React.createElement('a', { key: 'contato', href: '#contato', style: { textDecoration: 'none', color: '#374151', fontWeight: '500' } }, 'Contato')
-            ]),
-            React.createElement('a', {
-              key: 'btn',
-              href: '#contato',
-              style: {
-                background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
-                color: 'white',
-                padding: '12px 24px',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontWeight: '600'
-              }
-            }, 'Contato')
-          ]));
-        }
-        
-        // Componente Hero
+        // Componente Hero simples
         function Hero() {
           return React.createElement('section', {
             style: {
@@ -141,7 +83,7 @@
               key: 'image',
               style: { textAlign: 'center' }
             }, React.createElement('img', {
-              src: 'https://yt3.googleusercontent.com/K3XAqyuYQ_UQdvC-gzaK7R8HSsbFd8RKFleV9g61rfz0kp1hA1bb5pfQFXPz6I5iQRwJRip6KQ=s900-c-k-c0x00ffffff-no-rj',
+              src: './lovable-uploads/f0744d5c-e940-44f6-bff7-5f8ad6372674.png',
               alt: 'João Cris',
               style: {
                 width: '300px',
@@ -197,229 +139,30 @@
                   marginBottom: '30px'
                 }
               }, 'Influenciador com mais de 3.4 milhões de seguidores, conhecido pela minha história de superação, fé e impacto viral nas redes sociais.'),
-              React.createElement('div', {
-                key: 'stats',
-                style: {
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                  gap: '20px',
-                  marginTop: '30px'
-                }
-              }, [
-                React.createElement('div', {
-                  key: 'stat1',
-                  style: {
-                    background: 'linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(139, 92, 246, 0.1))',
-                    padding: '20px',
-                    borderRadius: '16px',
-                    textAlign: 'center',
-                    border: '2px solid rgba(255, 20, 147, 0.2)'
-                  }
-                }, [
-                  React.createElement('div', { key: 'num', style: { fontSize: '24px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } }, '3.4M'),
-                  React.createElement('div', { key: 'label', style: { fontSize: '14px', fontWeight: '600', color: '#ff1493', margin: '5px 0' } }, 'SEGUIDORES'),
-                  React.createElement('div', { key: 'desc', style: { fontSize: '12px', color: '#6b7280' } }, 'Total')
-                ]),
-                React.createElement('div', {
-                  key: 'stat2',
-                  style: {
-                    background: 'linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(139, 92, 246, 0.1))',
-                    padding: '20px',
-                    borderRadius: '16px',
-                    textAlign: 'center',
-                    border: '2px solid rgba(255, 20, 147, 0.2)'
-                  }
-                }, [
-                  React.createElement('div', { key: 'num', style: { fontSize: '24px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } }, '500M'),
-                  React.createElement('div', { key: 'label', style: { fontSize: '14px', fontWeight: '600', color: '#ff1493', margin: '5px 0' } }, 'VIEWS'),
-                  React.createElement('div', { key: 'desc', style: { fontSize: '12px', color: '#6b7280' } }, 'Totais')
-                ]),
-                React.createElement('div', {
-                  key: 'stat3',
-                  style: {
-                    background: 'linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(139, 92, 246, 0.1))',
-                    padding: '20px',
-                    borderRadius: '16px',
-                    textAlign: 'center',
-                    border: '2px solid rgba(255, 20, 147, 0.2)'
-                  }
-                }, [
-                  React.createElement('div', { key: 'num', style: { fontSize: '24px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } }, '9.5M'),
-                  React.createElement('div', { key: 'label', style: { fontSize: '14px', fontWeight: '600', color: '#ff1493', margin: '5px 0' } }, 'VIEWS'),
-                  React.createElement('div', { key: 'desc', style: { fontSize: '12px', color: '#6b7280' } }, 'Por Vídeo')
-                ])
-              ])
-            ])
-          ])));
-        }
-        
-        // Seção About
-        function About() {
-          return React.createElement('section', {
-            id: 'sobre',
-            style: {
-              padding: '80px 0',
-              background: 'white'
-            }
-          }, React.createElement('div', {
-            style: {
-              maxWidth: '1200px',
-              margin: '0 auto',
-              padding: '0 20px',
-              textAlign: 'center'
-            }
-          }, [
-            React.createElement('h2', {
-              key: 'title',
-              style: {
-                fontSize: '36px',
-                fontWeight: 'bold',
-                marginBottom: '20px',
-                fontFamily: 'Poppins, sans-serif'
-              }
-            }, [
-              'Minha ',
-              React.createElement('span', {
-                key: 'highlight',
-                style: {
-                  background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent'
-                }
-              }, 'História')
-            ]),
-            React.createElement('p', {
-              key: 'subtitle',
-              style: {
-                fontSize: '18px',
-                color: '#6b7280',
-                marginBottom: '50px',
-                maxWidth: '600px',
-                margin: '0 auto 50px'
-              }
-            }, 'De um acidente que mudou tudo para uma missão de inspirar MILHÕES.'),
-            React.createElement('p', {
-              key: 'desc',
-              style: {
-                fontSize: '16px',
-                color: '#6b7280',
-                lineHeight: '1.8',
-                maxWidth: '800px',
-                margin: '0 auto 40px'
-              }
-            }, 'Um acidente que mudou tudo: 9 dias em coma, uma cirurgia complexa onde meu crânio ficou 3 meses na barriga. 3 anos criando conteúdo profissional que inspira milhões. História autêntica que viralizou com +9.5M visualizações, construindo uma audiência fiel e engajada. Hoje uso minha plataforma para mostrar que sempre há uma forma de superar obstáculos com fé e propósito.'),
-            React.createElement('a', {
-              key: 'btn',
-              href: './static2.html',
-              style: {
-                background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
-                color: 'white',
-                padding: '15px 30px',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontWeight: '600',
-                display: 'inline-block'
-              }
-            }, '📋 Ver Media Kit Completo')
-          ]));
-        }
-        
-        // Seção Contact
-        function Contact() {
-          return React.createElement('section', {
-            id: 'contato',
-            style: {
-              padding: '80px 0',
-              background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
-              color: 'white'
-            }
-          }, React.createElement('div', {
-            style: {
-              maxWidth: '800px',
-              margin: '0 auto',
-              padding: '0 20px',
-              textAlign: 'center'
-            }
-          }, [
-            React.createElement('h2', {
-              key: 'title',
-              style: {
-                fontSize: '36px',
-                fontWeight: 'bold',
-                marginBottom: '20px',
-                fontFamily: 'Poppins, sans-serif'
-              }
-            }, 'Vamos Trabalhar Juntos?'),
-            React.createElement('p', {
-              key: 'desc',
-              style: {
-                fontSize: '18px',
-                marginBottom: '40px',
-                opacity: '0.9'
-              }
-            }, 'Entre em contato para parcerias, colaborações e oportunidades comerciais'),
-            React.createElement('div', {
-              key: 'buttons',
-              style: {
-                display: 'flex',
-                gap: '20px',
-                justifyContent: 'center',
-                flexWrap: 'wrap'
-              }
-            }, [
               React.createElement('a', {
-                key: 'email',
-                href: 'mailto:comercial@joaocris.com.br',
-                style: {
-                  background: 'white',
-                  color: '#ff1493',
-                  padding: '15px 30px',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  display: 'inline-block'
-                }
-              }, '📧 Email Comercial'),
-              React.createElement('a', {
-                key: 'whatsapp',
-                href: 'https://wa.me/5511999999999',
-                target: '_blank',
-                style: {
-                  background: 'white',
-                  color: '#ff1493',
-                  padding: '15px 30px',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  display: 'inline-block'
-                }
-              }, '📱 WhatsApp'),
-              React.createElement('a', {
-                key: 'full',
+                key: 'btn',
                 href: './static2.html',
                 style: {
-                  background: 'rgba(255, 255, 255, 0.2)',
+                  background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
                   color: 'white',
                   padding: '15px 30px',
                   borderRadius: '8px',
                   textDecoration: 'none',
                   fontWeight: '600',
-                  display: 'inline-block',
-                  border: '2px solid white'
+                  display: 'inline-block'
                 }
-              }, '📋 Media Kit Completo')
+              }, 'Ver Media Kit Completo')
             ])
-          ]));
+          ])));
         }
         
-        // App principal completo
+        // App principal
         function App() {
-          return React.createElement('div', { style: { minHeight: '100vh' } }, [
-            React.createElement(Header, { key: 'header' }),
-            React.createElement(Hero, { key: 'hero' }),
-            React.createElement(About, { key: 'about' }),
-            React.createElement(Contact, { key: 'contact' })
-          ]);
+          return React.createElement(HashRouter, null,
+            React.createElement(Routes, null,
+              React.createElement(Route, { path: '/', element: React.createElement(Hero) })
+            )
+          );
         }
         
         // Renderizar
@@ -427,29 +170,22 @@
         const root = ReactDOM.createRoot(container);
         root.render(React.createElement(App));
         
-        console.log('✅ React app completo carregado com sucesso - 100% funcional!');
-        
-        // Smooth scrolling
-        setTimeout(() => {
-          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-              e.preventDefault();
-              const target = document.querySelector(this.getAttribute('href'));
-              if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            });
-          });
-        }, 100);
-        
+        console.log('React app carregado com sucesso!');
       } else {
-        // Fallback apenas se React realmente não carregar
-        console.log('❌ React não carregou, redirecionando para versão estática completa');
-        window.location.href = './static2.html';
+        // Fallback se React não carregar
+        document.getElementById('root').innerHTML = `
+          <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: Arial; text-align: center;">
+            <div>
+              <h1 style="color: #ff1493; margin-bottom: 20px;">João Cris - Media Kit</h1>
+              <p style="margin-bottom: 20px;">React não carregou, mas você pode acessar o site completo:</p>
+              <a href="./static2.html" style="background: linear-gradient(135deg, #ff1493, #8b5cf6); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold;">Acessar Media Kit</a>
+            </div>
+          </div>
+        `;
       }
     </script>
     
     <!-- Fallback: tentar carregar versão Vite se disponível -->
-    <script type="module" src="/src/main.tsx" onerror="console.log('Vite não disponível, usando versão CDN - tudo funcionando!')"></script>
+    <script type="module" src="/src/main.tsx" onerror="console.log('Vite não disponível, usando versão CDN')"></script>
   </body>
 </html>
