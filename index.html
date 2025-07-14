@@ -28,6 +28,55 @@
   <body>
     <div id="root"></div>
     <script>
+      // Sistema de debug para capturar erros
+      window.DEBUG_ERRORS = [];
+      
+      // Função global para mostrar erros no console
+      window.showErrors = function() {
+        console.group('🔍 DEBUG: TODOS OS ERROS CAPTURADOS');
+        if (window.DEBUG_ERRORS.length === 0) {
+          console.log('✅ Nenhum erro encontrado!');
+        } else {
+          window.DEBUG_ERRORS.forEach(function(error, index) {
+            console.group('❌ Erro ' + (index + 1) + ':');
+            console.error(error);
+            console.groupEnd();
+          });
+        }
+        console.groupEnd();
+        return window.DEBUG_ERRORS;
+      };
+
+      // Função para adicionar erro ao debug
+      window.addDebugError = function(error) {
+        window.DEBUG_ERRORS.push({
+          timestamp: new Date().toISOString(),
+          error: error,
+          stack: error.stack || 'No stack trace',
+          message: error.message || 'No message'
+        });
+      };
+
+      console.log('💡 Sistema de debug carregado! Digite showErrors() no console para ver erros');
+      
+      // Capturar erros globais
+      window.addEventListener('error', function(e) {
+        var errorInfo = {
+          message: e.message,
+          filename: e.filename,
+          lineno: e.lineno,
+          colno: e.colno,
+          error: e.error
+        };
+        console.error('ERRO GLOBAL:', errorInfo);
+        window.addDebugError(errorInfo);
+      });
+
+      window.addEventListener('unhandledrejection', function(e) {
+        console.error('PROMISE REJEITADA:', e.reason);
+        window.addDebugError({ type: 'Promise Rejection', reason: e.reason });
+      });
+
       // SPA redirect handling
       (function(l) {
         if (l.search[1] === '/' ) {
