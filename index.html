@@ -65,9 +65,16 @@
         }
       }, 3000);
       
-      // Detectar erros globais
+      // Capturar erros para o log
+      window.errorLog = [];
       window.addEventListener('error', (e) => {
         console.error('❌ Erro detectado:', e.message);
+        window.errorLog.push({
+          message: e.message,
+          filename: e.filename,
+          lineno: e.lineno,
+          timestamp: new Date().toISOString()
+        });
         if (!siteLoaded) {
           console.log('🔄 Redirecionando para versão estática devido a erro...');
           clearTimeout(loadingTimeout);
@@ -78,6 +85,10 @@
       // Detectar promises rejeitadas
       window.addEventListener('unhandledrejection', (e) => {
         console.error('❌ Promise rejeitada:', e.reason);
+        window.errorLog.push({
+          message: 'Promise rejected: ' + e.reason,
+          timestamp: new Date().toISOString()
+        });
         if (!siteLoaded) {
           console.log('🔄 Redirecionando para versão estática devido a promise rejeitada...');
           clearTimeout(loadingTimeout);
@@ -302,25 +313,25 @@
           ])));
         }
         
-        // Seção About
+        // Seção About completa
         function About() {
           return React.createElement('section', {
             id: 'sobre',
             style: {
-              padding: '80px 0',
+              padding: '60px 0',
               background: 'white'
             }
           }, React.createElement('div', {
             style: {
               maxWidth: '1200px',
               margin: '0 auto',
-              padding: '0 20px',
-              textAlign: 'center'
+              padding: '0 20px'
             }
           }, [
             React.createElement('h2', {
               key: 'title',
               style: {
+                textAlign: 'center',
                 fontSize: '36px',
                 fontWeight: 'bold',
                 marginBottom: '20px',
@@ -340,36 +351,399 @@
             React.createElement('p', {
               key: 'subtitle',
               style: {
+                textAlign: 'center',
                 fontSize: '18px',
                 color: '#6b7280',
-                marginBottom: '50px',
+                marginBottom: '40px',
                 maxWidth: '600px',
-                margin: '0 auto 50px'
-              }
-            }, 'De um acidente que mudou tudo para uma missão de inspirar MILHÕES.'),
-            React.createElement('p', {
-              key: 'desc',
-              style: {
-                fontSize: '16px',
-                color: '#6b7280',
-                lineHeight: '1.8',
-                maxWidth: '800px',
                 margin: '0 auto 40px'
               }
-            }, 'Um acidente que mudou tudo: 9 dias em coma, uma cirurgia complexa onde meu crânio ficou 3 meses na barriga. 3 anos criando conteúdo profissional que inspira milhões. História autêntica que viralizou com +9.5M visualizações, construindo uma audiência fiel e engajada. Hoje uso minha plataforma para mostrar que sempre há uma forma de superar obstáculos com fé e propósito.'),
-            React.createElement('a', {
-              key: 'btn',
-              href: './static2.html',
+            }, 'De um acidente que mudou tudo para uma missão de inspirar MILHÕES.'),
+            React.createElement('div', {
+              key: 'cards',
               style: {
-                background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
-                color: 'white',
-                padding: '15px 30px',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontWeight: '600',
-                display: 'inline-block'
+                display: 'grid',
+                gap: '20px',
+                gridTemplateColumns: window.innerWidth >= 1024 ? 'repeat(3, 1fr)' : window.innerWidth >= 768 ? 'repeat(2, 1fr)' : '1fr'
               }
-            }, '📋 Ver Media Kit Completo')
+            }, [
+              React.createElement('div', {
+                key: 'card1',
+                style: {
+                  background: 'white',
+                  padding: '30px',
+                  borderRadius: '16px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                  border: '2px solid #f3f4f6',
+                  transition: 'all 0.3s'
+                }
+              }, [
+                React.createElement('div', { key: 'icon', style: { fontSize: '32px', marginBottom: '15px' } }, '🏥'),
+                React.createElement('h3', { key: 'title', style: { fontSize: '20px', fontWeight: 'bold', marginBottom: '10px' } }, 'O Acidente + Cirurgia'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', fontSize: '14px' } }, 'Um acidente que mudou tudo: 9 dias em coma, uma cirurgia complexa onde meu crânio ficou 3 meses na barriga. Uma experiência que transformou dor em propósito.')
+              ]),
+              React.createElement('div', {
+                key: 'card2',
+                style: {
+                  background: 'white',
+                  padding: '30px',
+                  borderRadius: '16px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                  border: '2px solid #f3f4f6',
+                  transition: 'all 0.3s'
+                }
+              }, [
+                React.createElement('div', { key: 'icon', style: { fontSize: '32px', marginBottom: '15px' } }, '📱'),
+                React.createElement('h3', { key: 'title', style: { fontSize: '20px', fontWeight: 'bold', marginBottom: '10px' } }, 'Viral + Profissional'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', fontSize: '14px' } }, '3 anos criando conteúdo profissional que inspira milhões. História autêntica que viralizou com +9.5M visualizações, construindo uma audiência fiel e engajada.')
+              ]),
+              React.createElement('div', {
+                key: 'card3',
+                style: {
+                  background: 'white',
+                  padding: '30px',
+                  borderRadius: '16px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                  border: '2px solid #f3f4f6',
+                  transition: 'all 0.3s'
+                }
+              }, [
+                React.createElement('div', { key: 'icon', style: { fontSize: '32px', marginBottom: '15px' } }, '🙏'),
+                React.createElement('h3', { key: 'title', style: { fontSize: '20px', fontWeight: 'bold', marginBottom: '10px' } }, 'Fé e Superação'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', fontSize: '14px' } }, 'Hoje uso minha plataforma para mostrar que sempre há uma forma de superar obstáculos com fé e propósito.')
+              ])
+            ])
+          ]));
+        }
+        
+        // Seção Social Stats completa
+        function SocialStats() {
+          return React.createElement('section', {
+            id: 'numeros',
+            style: {
+              padding: '60px 0',
+              background: 'linear-gradient(135deg, #f9fafb, #ffffff)'
+            }
+          }, React.createElement('div', {
+            style: {
+              maxWidth: '1200px',
+              margin: '0 auto',
+              padding: '0 20px'
+            }
+          }, [
+            React.createElement('h2', {
+              key: 'title',
+              style: {
+                textAlign: 'center',
+                fontSize: '36px',
+                fontWeight: 'bold',
+                marginBottom: '20px',
+                fontFamily: 'Poppins, sans-serif'
+              }
+            }, [
+              React.createElement('span', {
+                key: 'highlight',
+                style: {
+                  background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
+                }
+              }, '3.4 Milhões'),
+              ' de Seguidores'
+            ]),
+            React.createElement('p', {
+              key: 'subtitle',
+              style: {
+                textAlign: 'center',
+                fontSize: '18px',
+                color: '#6b7280',
+                marginBottom: '40px'
+              }
+            }, 'Alcance garantido para sua marca'),
+            React.createElement('div', {
+              key: 'instagram-highlight',
+              style: {
+                background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.05), rgba(236, 72, 153, 0.05))',
+                borderRadius: '24px',
+                padding: '30px',
+                margin: '40px 0',
+                border: '2px solid rgba(147, 51, 234, 0.1)',
+                textAlign: 'center'
+              }
+            }, [
+              React.createElement('h3', { key: 'title', style: { fontSize: '24px', fontWeight: 'bold', marginBottom: '10px' } }, 'Instagram'),
+              React.createElement('div', { key: 'handle', style: { fontSize: '14px', color: '#6b7280', marginBottom: '10px' } }, '@eujoaocris'),
+              React.createElement('div', { key: 'followers', style: { fontSize: '36px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } }, '500 mil'),
+              React.createElement('div', { key: 'metric', style: { fontSize: '16px', color: '#ff1493', fontWeight: '600' } }, '20 milhões alcance mensal')
+            ]),
+            React.createElement('div', {
+              key: 'social-grid',
+              style: {
+                display: 'grid',
+                gap: '20px',
+                gridTemplateColumns: window.innerWidth >= 768 ? 'repeat(2, 1fr)' : '1fr'
+              }
+            }, [
+              React.createElement('div', {
+                key: 'tiktok',
+                style: {
+                  background: 'white',
+                  padding: '25px',
+                  borderRadius: '16px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                  border: '2px solid #f3f4f6',
+                  textAlign: 'center'
+                }
+              }, [
+                React.createElement('div', { key: 'header', style: { height: '4px', background: 'linear-gradient(135deg, #ff1493, #dc2626)', margin: '-25px -25px 20px -25px', borderRadius: '16px 16px 0 0' } }),
+                React.createElement('h3', { key: 'name', style: { fontSize: '18px', fontWeight: 'bold' } }, 'TikTok'),
+                React.createElement('div', { key: 'handle', style: { fontSize: '12px', color: '#6b7280', marginBottom: '10px' } }, '@eujoaocris'),
+                React.createElement('div', { key: 'followers', style: { fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '5px' } }, '1,2M'),
+                React.createElement('div', { key: 'label', style: { fontSize: '12px', color: '#6b7280', fontWeight: '600' } }, 'Seguidores'),
+                React.createElement('div', { key: 'metric', style: { fontSize: '12px', color: '#ff1493', fontWeight: '600', marginTop: '5px' } }, '+22,6 milhões curtidas')
+              ]),
+              React.createElement('div', {
+                key: 'youtube',
+                style: {
+                  background: 'white',
+                  padding: '25px',
+                  borderRadius: '16px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                  border: '2px solid #f3f4f6',
+                  textAlign: 'center'
+                }
+              }, [
+                React.createElement('div', { key: 'header', style: { height: '4px', background: 'linear-gradient(135deg, #dc2626, #991b1b)', margin: '-25px -25px 20px -25px', borderRadius: '16px 16px 0 0' } }),
+                React.createElement('h3', { key: 'name', style: { fontSize: '18px', fontWeight: 'bold' } }, 'YouTube'),
+                React.createElement('div', { key: 'handle', style: { fontSize: '12px', color: '#6b7280', marginBottom: '10px' } }, '@joaocristofoli'),
+                React.createElement('div', { key: 'followers', style: { fontSize: '28px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '5px' } }, '1M'),
+                React.createElement('div', { key: 'label', style: { fontSize: '12px', color: '#6b7280', fontWeight: '600' } }, 'Inscritos'),
+                React.createElement('div', { key: 'metric', style: { fontSize: '12px', color: '#ff1493', fontWeight: '600', marginTop: '5px' } }, 'até 9,5 milhões views/vídeo')
+              ])
+            ])
+          ]));
+        }
+        
+        // Seção Audience completa
+        function Audience() {
+          return React.createElement('section', {
+            id: 'publico',
+            style: {
+              padding: '60px 0',
+              background: 'white'
+            }
+          }, React.createElement('div', {
+            style: {
+              maxWidth: '1200px',
+              margin: '0 auto',
+              padding: '0 20px'
+            }
+          }, [
+            React.createElement('h2', {
+              key: 'title',
+              style: {
+                textAlign: 'center',
+                fontSize: '36px',
+                fontWeight: 'bold',
+                marginBottom: '20px',
+                fontFamily: 'Poppins, sans-serif'
+              }
+            }, [
+              'Perfil do ',
+              React.createElement('span', {
+                key: 'highlight',
+                style: {
+                  background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
+                }
+              }, 'Público')
+            ]),
+            React.createElement('p', {
+              key: 'subtitle',
+              style: {
+                textAlign: 'center',
+                fontSize: '18px',
+                color: '#6b7280',
+                marginBottom: '40px'
+              }
+            }, 'Audiência altamente engajada CLASSES A, B e C com potencial de conversão comprovado.'),
+            React.createElement('div', {
+              key: 'cards',
+              style: {
+                display: 'grid',
+                gap: '20px',
+                gridTemplateColumns: window.innerWidth >= 1024 ? 'repeat(4, 1fr)' : window.innerWidth >= 768 ? 'repeat(2, 1fr)' : '1fr'
+              }
+            }, [
+              React.createElement('div', {
+                key: 'card1',
+                style: {
+                  background: 'white',
+                  padding: '20px',
+                  borderRadius: '16px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                  border: '2px solid #f3f4f6',
+                  textAlign: 'center'
+                }
+              }, [
+                React.createElement('div', { key: 'icon', style: { fontSize: '24px', marginBottom: '10px' } }, '😄'),
+                React.createElement('h3', { key: 'title', style: { fontSize: '16px', fontWeight: 'bold', marginBottom: '10px' } }, 'Conteúdo Divertido'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', fontSize: '12px', marginBottom: '10px' } }, 'Forte conexão com o público que busca entretenimento'),
+                React.createElement('span', { key: 'badge', style: { fontSize: '12px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } }, 'Alta conversão')
+              ]),
+              React.createElement('div', {
+                key: 'card2',
+                style: {
+                  background: 'white',
+                  padding: '20px',
+                  borderRadius: '16px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                  border: '2px solid #f3f4f6',
+                  textAlign: 'center'
+                }
+              }, [
+                React.createElement('div', { key: 'icon', style: { fontSize: '24px', marginBottom: '10px' } }, '💪'),
+                React.createElement('h3', { key: 'title', style: { fontSize: '16px', fontWeight: 'bold', marginBottom: '10px' } }, 'Superação'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', fontSize: '12px', marginBottom: '10px' } }, 'Audiência que se identifica com histórias de superação'),
+                React.createElement('span', { key: 'badge', style: { fontSize: '12px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } }, 'Engajamento genuíno')
+              ]),
+              React.createElement('div', {
+                key: 'card3',
+                style: {
+                  background: 'white',
+                  padding: '20px',
+                  borderRadius: '16px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                  border: '2px solid #f3f4f6',
+                  textAlign: 'center'
+                }
+              }, [
+                React.createElement('div', { key: 'icon', style: { fontSize: '24px', marginBottom: '10px' } }, '❤️'),
+                React.createElement('h3', { key: 'title', style: { fontSize: '16px', fontWeight: 'bold', marginBottom: '10px' } }, 'Entretenimento Positivo'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', fontSize: '12px', marginBottom: '10px' } }, 'Público que valoriza conteúdo leve e inspirador'),
+                React.createElement('span', { key: 'badge', style: { fontSize: '12px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } }, 'Conexão emocional')
+              ]),
+              React.createElement('div', {
+                key: 'card4',
+                style: {
+                  background: 'white',
+                  padding: '20px',
+                  borderRadius: '16px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                  border: '2px solid #f3f4f6',
+                  textAlign: 'center'
+                }
+              }, [
+                React.createElement('div', { key: 'icon', style: { fontSize: '24px', marginBottom: '10px' } }, '🌟'),
+                React.createElement('h3', { key: 'title', style: { fontSize: '16px', fontWeight: 'bold', marginBottom: '10px' } }, 'Inspiração Diária'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', fontSize: '12px', marginBottom: '10px' } }, 'Seguidores que buscam motivação e propósito'),
+                React.createElement('span', { key: 'badge', style: { fontSize: '12px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } }, 'Fidelidade alta')
+              ])
+            ])
+          ]));
+        }
+        
+        // Seção Pricing completa
+        function Pricing() {
+          return React.createElement('section', {
+            id: 'investimento',
+            style: {
+              padding: '60px 0',
+              background: 'linear-gradient(135deg, #f9fafb, #ffffff)'
+            }
+          }, React.createElement('div', {
+            style: {
+              maxWidth: '1200px',
+              margin: '0 auto',
+              padding: '0 20px'
+            }
+          }, [
+            React.createElement('h2', {
+              key: 'title',
+              style: {
+                textAlign: 'center',
+                fontSize: '36px',
+                fontWeight: 'bold',
+                marginBottom: '20px',
+                fontFamily: 'Poppins, sans-serif'
+              }
+            }, [
+              'Tabela de ',
+              React.createElement('span', {
+                key: 'highlight',
+                style: {
+                  background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
+                }
+              }, 'Investimento')
+            ]),
+            React.createElement('p', {
+              key: 'subtitle',
+              style: {
+                textAlign: 'center',
+                fontSize: '18px',
+                color: '#6b7280',
+                marginBottom: '40px'
+              }
+            }, 'Valores para parcerias e colaborações comerciais'),
+            React.createElement('div', {
+              key: 'cards',
+              style: {
+                display: 'grid',
+                gap: '20px',
+                gridTemplateColumns: window.innerWidth >= 1024 ? 'repeat(3, 1fr)' : '1fr'
+              }
+            }, [
+              React.createElement('div', {
+                key: 'card1',
+                style: {
+                  background: 'white',
+                  padding: '40px',
+                  borderRadius: '24px',
+                  boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
+                  border: '3px solid #f3f4f6',
+                  textAlign: 'center',
+                  position: 'relative'
+                }
+              }, [
+                React.createElement('div', { key: 'badge', style: { position: 'absolute', top: '-15px', left: '50%', transform: 'translateX(-50%)', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', color: 'white', padding: '8px 20px', borderRadius: '20px', fontSize: '14px', fontWeight: 'bold' } }, 'Mais Popular'),
+                React.createElement('h3', { key: 'title', style: { fontSize: '24px', fontWeight: 'bold', marginBottom: '10px' } }, 'Stories'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', marginBottom: '20px' } }, 'Conteúdo autêntico e engajado'),
+                React.createElement('div', { key: 'price', style: { fontSize: '36px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '20px' } }, 'R$ 2.500')
+              ]),
+              React.createElement('div', {
+                key: 'card2',
+                style: {
+                  background: 'white',
+                  padding: '40px',
+                  borderRadius: '24px',
+                  boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
+                  border: '3px solid #f3f4f6',
+                  textAlign: 'center'
+                }
+              }, [
+                React.createElement('h3', { key: 'title', style: { fontSize: '24px', fontWeight: 'bold', marginBottom: '10px' } }, 'Feed/Reels'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', marginBottom: '20px' } }, 'Vídeos virais de alta qualidade'),
+                React.createElement('div', { key: 'price', style: { fontSize: '36px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '20px' } }, 'R$ 8.000')
+              ]),
+              React.createElement('div', {
+                key: 'card3',
+                style: {
+                  background: 'white',
+                  padding: '40px',
+                  borderRadius: '24px',
+                  boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
+                  border: '3px solid #f3f4f6',
+                  textAlign: 'center'
+                }
+              }, [
+                React.createElement('h3', { key: 'title', style: { fontSize: '24px', fontWeight: 'bold', marginBottom: '10px' } }, 'Pacote Completo'),
+                React.createElement('p', { key: 'desc', style: { color: '#6b7280', marginBottom: '20px' } }, 'Campanha 360° multiplataforma'),
+                React.createElement('div', { key: 'price', style: { fontSize: '36px', fontWeight: 'bold', background: 'linear-gradient(135deg, #ff1493, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '20px' } }, 'R$ 15.000')
+              ])
+            ])
           ]));
         }
         
@@ -467,7 +841,45 @@
             React.createElement(Header, { key: 'header' }),
             React.createElement(Hero, { key: 'hero' }),
             React.createElement(About, { key: 'about' }),
-            React.createElement(Contact, { key: 'contact' })
+            React.createElement(SocialStats, { key: 'social' }),
+            React.createElement(Audience, { key: 'audience' }),
+            React.createElement(Pricing, { key: 'pricing' }),
+            React.createElement(Contact, { key: 'contact' }),
+            // Botão de Log para debug
+            React.createElement('div', {
+              key: 'log-button',
+              style: {
+                position: 'fixed',
+                bottom: '20px',
+                right: '20px',
+                zIndex: 9999
+              }
+            }, React.createElement('button', {
+              onClick: () => {
+                const logs = JSON.stringify({
+                  reactLoaded: typeof React !== 'undefined',
+                  reactDOMLoaded: typeof ReactDOM !== 'undefined',
+                  siteLoaded: siteLoaded,
+                  userAgent: navigator.userAgent,
+                  timestamp: new Date().toISOString(),
+                  url: window.location.href,
+                  errors: window.errorLog || []
+                }, null, 2);
+                console.log('=== DEBUG LOG ===');
+                console.log(logs);
+                alert('Log copiado para o console! Pressione F12 para ver.');
+              },
+              style: {
+                background: '#374151',
+                color: 'white',
+                border: 'none',
+                borderRadius: '6px',
+                padding: '8px 12px',
+                fontSize: '12px',
+                cursor: 'pointer',
+                opacity: '0.7'
+              }
+            }, 'log'))
           ]);
         }
         
