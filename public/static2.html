@@ -914,6 +914,19 @@
     <script>
         console.log('=== STATIC2 CARREGADO COM TODOS OS DADOS CORRETOS ===');
         
+        // Verificar se há hash na URL e removê-lo no carregamento inicial
+        if (window.location.hash && !document.querySelector(window.location.hash)) {
+            console.log('Hash detectado mas elemento não encontrado, limpando URL');
+            window.history.replaceState(null, null, window.location.pathname);
+        }
+        
+        // Se há hash #contato, limpar para começar do topo
+        if (window.location.hash === '#contato') {
+            console.log('Removendo hash #contato para começar do topo');
+            window.history.replaceState(null, null, window.location.pathname);
+            window.scrollTo(0, 0);
+        }
+        
         // Smooth scrolling para links do header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
