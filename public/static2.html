@@ -134,8 +134,8 @@
         }
         
         .hero-image img {
-            width: 256px;
-            height: 256px;
+            width: 300px;
+            height: 300px;
             object-fit: cover;
             border-radius: 50%;
             border: 4px solid white;
@@ -144,8 +144,8 @@
         
         @media (min-width: 1024px) {
             .hero-image img {
-                width: 320px;
-                height: 320px;
+                width: 400px;
+                height: 400px;
             }
         }
         
@@ -195,22 +195,30 @@
         }
         
         .stat-card {
-            background: #f9fafb;
-            padding: 16px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(139, 92, 246, 0.1));
+            padding: 20px;
+            border-radius: 16px;
             text-align: center;
-            border: 1px solid #e5e7eb;
+            border: 2px solid rgba(255, 20, 147, 0.2);
         }
         
         .stat-number {
             font-size: 24px;
             font-weight: bold;
-            color: #111827;
-            margin-bottom: 4px;
+            background: linear-gradient(135deg, #ff1493, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .stat-label {
             font-size: 14px;
+            font-weight: 600;
+            color: #ff1493;
+            margin: 5px 0;
+        }
+        
+        .stat-desc {
+            font-size: 12px;
             color: #6b7280;
         }
         
@@ -508,9 +516,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-image">
-                    <img src="https://yt3.googleusercontent.com/K3XAqyuYQ_UQdvC-gzaK7R8HSsbFd8RKFleV9g61rfz0kp1hA1bb5pfQFXPz6I5iQRwJRip6KQ=s900-c-k-c0x00ffffff-no-rj" 
-                         alt="João Cris - Influenciador de Fé e Superação"
-                         onerror="this.src='./lovable-uploads/f0744d5c-e940-44f6-bff7-5f8ad6372674.png';">
+                    <img src="./lovable-uploads/f0744d5c-e940-44f6-bff7-5f8ad6372674.png" alt="João Cris - Influenciador de Fé e Superação">
                 </div>
                 <div class="hero-text">
                     <h1 class="hero-title">
@@ -527,16 +533,19 @@
                     
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number">3.4M</div>
-                            <div class="stat-label">Seguidores</div>
+                            <div class="stat-number">+3.4</div>
+                            <div class="stat-label">MILHÕES</div>
+                            <div class="stat-desc">Seguidores</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">500M</div>
-                            <div class="stat-label">Views Totais</div>
+                            <div class="stat-number">+500</div>
+                            <div class="stat-label">MILHÕES</div>
+                            <div class="stat-desc">Views Totais</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">9.5M</div>
-                            <div class="stat-label">Views/Vídeo</div>
+                            <div class="stat-number">9.5</div>
+                            <div class="stat-label">MILHÕES</div>
+                            <div class="stat-desc">Views/Vídeo</div>
                         </div>
                     </div>
                 </div>
