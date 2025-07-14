@@ -29,12 +29,61 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading indicator -->
+      <div id="loading-indicator" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: Arial; text-align: center;">
+        <div>
+          <div style="font-size: 24px; margin-bottom: 20px; color: #ff1493; font-weight: bold;">João Cris - Media Kit</div>
+          <div style="margin-bottom: 20px;">Carregando...</div>
+          <div style="width: 50px; height: 4px; background: #f3f4f6; border-radius: 2px; margin: 0 auto; overflow: hidden;">
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff1493, #8b5cf6); animation: loading 2s infinite;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      @keyframes loading {
+        0% { transform: translateX(-100%); }
+        50% { transform: translateX(0%); }
+        100% { transform: translateX(100%); }
+      }
+    </style>
     
     <script>
-      // Verificar se React carregou
+      // Debug logs
+      console.log('🚀 Iniciando João Cris Media Kit...');
       console.log('React disponível:', typeof React !== 'undefined');
       console.log('ReactDOM disponível:', typeof ReactDOM !== 'undefined');
+      
+      // Timeout para detectar se o site não carregou
+      let siteLoaded = false;
+      const loadingTimeout = setTimeout(() => {
+        if (!siteLoaded) {
+          console.log('⚠️ Site não carregou em 3 segundos, redirecionando para versão estática...');
+          window.location.href = './static2.html';
+        }
+      }, 3000);
+      
+      // Detectar erros globais
+      window.addEventListener('error', (e) => {
+        console.error('❌ Erro detectado:', e.message);
+        if (!siteLoaded) {
+          console.log('🔄 Redirecionando para versão estática devido a erro...');
+          clearTimeout(loadingTimeout);
+          window.location.href = './static2.html';
+        }
+      });
+      
+      // Detectar promises rejeitadas
+      window.addEventListener('unhandledrejection', (e) => {
+        console.error('❌ Promise rejeitada:', e.reason);
+        if (!siteLoaded) {
+          console.log('🔄 Redirecionando para versão estática devido a promise rejeitada...');
+          clearTimeout(loadingTimeout);
+          window.location.href = './static2.html';
+        }
+      });
       
       // SPA redirect handling
       (function(l) {
@@ -427,6 +476,16 @@
         const root = ReactDOM.createRoot(container);
         root.render(React.createElement(App));
         
+        // Marcar como carregado com sucesso
+        siteLoaded = true;
+        clearTimeout(loadingTimeout);
+        
+        // Remover loading indicator
+        const loadingIndicator = document.getElementById('loading-indicator');
+        if (loadingIndicator) {
+          loadingIndicator.remove();
+        }
+        
         console.log('✅ React app completo carregado com sucesso - 100% funcional!');
         
         // Smooth scrolling
@@ -443,13 +502,14 @@
         }, 100);
         
       } else {
-        // Fallback apenas se React realmente não carregar
-        console.log('❌ React não carregou, redirecionando para versão estática completa');
+        // React não carregou - redirecionar imediatamente
+        console.log('❌ React não carregou via CDN, redirecionando para versão estática...');
+        clearTimeout(loadingTimeout);
         window.location.href = './static2.html';
       }
     </script>
     
     <!-- Fallback: tentar carregar versão Vite se disponível -->
-    <script type="module" src="/src/main.tsx" onerror="console.log('Vite não disponível, usando versão CDN - tudo funcionando!')"></script>
+    <script type="module" src="/src/main.tsx" onerror="console.log('ℹ️ Vite não disponível, usando versão CDN'); if (!siteLoaded) { console.log('🔄 Erro no Vite, redirecionando...'); window.location.href='./static2.html'; }"></script>
   </body>
 </html>
