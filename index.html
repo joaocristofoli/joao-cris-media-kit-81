@@ -26,36 +26,9 @@
   </head>
 
   <body>
-    <div id="root">
-      <!-- Loading fallback -->
-      <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: Arial;">
-        <div style="text-align: center;">
-          <div style="font-size: 24px; margin-bottom: 20px;">Carregando João Cris Media Kit...</div>
-          <div style="margin-bottom: 20px;">Se não carregar em 3 segundos, será redirecionado automaticamente.</div>
-          <div><a href="./static2.html" style="color: #ff1493; text-decoration: none; font-weight: bold;">Clique aqui para acessar diretamente</a></div>
-        </div>
-      </div>
-    </div>
+    <div id="root"></div>
     
     <script>
-      // Fallback automático se React não carregar
-      setTimeout(function() {
-        const root = document.getElementById('root');
-        if (root && root.innerHTML.includes('Carregando')) {
-          console.log('React não carregou, redirecionando para versão estática');
-          window.location.href = './static2.html';
-        }
-      }, 3000);
-      
-      // Tratamento de erro para o módulo
-      window.addEventListener('error', function(e) {
-        console.error('Erro ao carregar:', e);
-        if (e.message && e.message.includes('main.tsx')) {
-          console.log('Erro no main.tsx, redirecionando para versão estática');
-          window.location.href = './static2.html';
-        }
-      });
-      
       // SPA redirect handling
       (function(l) {
         if (l.search[1] === '/' ) {
@@ -68,6 +41,6 @@
         }
       }(window.location))
     </script>
-    <script type="module" src="/src/main.tsx" onerror="console.error('Falha ao carregar main.tsx'); window.location.href='./static2.html';"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
