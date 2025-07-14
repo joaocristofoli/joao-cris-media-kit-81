@@ -139,30 +139,124 @@
                   marginBottom: '30px'
                 }
               }, 'Influenciador com mais de 3.4 milhões de seguidores, conhecido pela minha história de superação, fé e impacto viral nas redes sociais.'),
-              React.createElement('a', {
+              React.createElement('button', {
                 key: 'btn',
-                href: './static2.html',
+                onClick: () => {
+                  const contactSection = document.getElementById('contato');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                },
                 style: {
                   background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
                   color: 'white',
+                  padding: '15px 30px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  fontWeight: '600',
+                  display: 'inline-block',
+                  cursor: 'pointer'
+                }
+              }, 'Entrar em Contato')
+            ])
+          ])));
+        }
+        
+        // Componente Contact simples
+        function Contact() {
+          return React.createElement('section', {
+            id: 'contato',
+            style: {
+              padding: '80px 0',
+              background: 'linear-gradient(135deg, #ff1493, #8b5cf6)',
+              color: 'white'
+            }
+          }, React.createElement('div', {
+            style: {
+              maxWidth: '800px',
+              margin: '0 auto',
+              padding: '0 20px',
+              textAlign: 'center'
+            }
+          }, [
+            React.createElement('h2', {
+              key: 'title',
+              style: {
+                fontSize: '36px',
+                fontWeight: 'bold',
+                marginBottom: '20px',
+                fontFamily: 'Poppins, sans-serif'
+              }
+            }, 'Vamos Trabalhar Juntos?'),
+            React.createElement('p', {
+              key: 'desc',
+              style: {
+                fontSize: '18px',
+                marginBottom: '40px',
+                opacity: '0.9'
+              }
+            }, 'Entre em contato para parcerias, colaborações e oportunidades comerciais'),
+            React.createElement('div', {
+              key: 'buttons',
+              style: {
+                display: 'flex',
+                gap: '20px',
+                justifyContent: 'center',
+                flexWrap: 'wrap'
+              }
+            }, [
+              React.createElement('a', {
+                key: 'email',
+                href: 'mailto:comercial@joaocris.com.br',
+                style: {
+                  background: 'white',
+                  color: '#ff1493',
                   padding: '15px 30px',
                   borderRadius: '8px',
                   textDecoration: 'none',
                   fontWeight: '600',
                   display: 'inline-block'
                 }
-              }, 'Ver Media Kit Completo')
+              }, '📧 Email Comercial'),
+              React.createElement('a', {
+                key: 'whatsapp',
+                href: 'https://wa.me/5511999999999',
+                target: '_blank',
+                style: {
+                  background: 'white',
+                  color: '#ff1493',
+                  padding: '15px 30px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  display: 'inline-block'
+                }
+              }, '📱 WhatsApp'),
+              React.createElement('a', {
+                key: 'full',
+                href: './static2.html',
+                style: {
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  color: 'white',
+                  padding: '15px 30px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  display: 'inline-block',
+                  border: '2px solid white'
+                }
+              }, '📋 Media Kit Completo')
             ])
-          ])));
+          ]));
+        }
         }
         
         // App principal
         function App() {
-          return React.createElement(HashRouter, null,
-            React.createElement(Routes, null,
-              React.createElement(Route, { path: '/', element: React.createElement(Hero) })
-            )
-          );
+          return React.createElement('div', null, [
+            React.createElement(Hero, { key: 'hero' }),
+            React.createElement(Contact, { key: 'contact' })
+          ]);
         }
         
         // Renderizar
