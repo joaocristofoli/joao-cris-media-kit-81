@@ -24,7 +24,7 @@ const App = () => {
         <HashRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/static" element={<div style={{display: 'none'}}></div>} />
+            <Route path="/static2" element={<div style={{display: 'none'}}></div>} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/dashboard" element={<Dashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
