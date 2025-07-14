@@ -89,6 +89,30 @@
         }
       }(window.location))
     </script>
+    <script>
+      // Forçar carregamento correto dos assets se houver erro 404
+      window.addEventListener('error', function(e) {
+        if (e.target && e.target.tagName && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+          var src = e.target.src || e.target.href;
+          if (src && src.includes('/joao-cris-media-kit/')) {
+            var newSrc = src.replace('/joao-cris-media-kit/', '/');
+            console.log('Corrigindo caminho:', src, '->', newSrc);
+            
+            if (e.target.tagName === 'SCRIPT') {
+              var newScript = document.createElement('script');
+              newScript.type = 'module';
+              newScript.src = newSrc;
+              document.head.appendChild(newScript);
+            } else if (e.target.tagName === 'LINK') {
+              var newLink = document.createElement('link');
+              newLink.rel = 'stylesheet';
+              newLink.href = newSrc;
+              document.head.appendChild(newLink);
+            }
+          }
+        }
+      }, true);
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
