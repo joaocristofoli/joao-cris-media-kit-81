@@ -20,12 +20,15 @@ const Header = () => {
     <header className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <h1 className="text-2xl font-bold gradient-text">João Cris</h1>
             <span className="text-sm text-gray-500">Media Kit Digital</span>
-          </div>
+          </Link>
           
           <div className="hidden md:flex items-center space-x-6">
+            <Link to="/" className="text-gray-700 hover:text-joao-pink transition-colors">
+              Início
+            </Link>
             <button onClick={() => scrollToSection('sobre')} className="text-gray-700 hover:text-joao-pink transition-colors">
               Sobre
             </button>
@@ -35,6 +38,9 @@ const Header = () => {
             <button onClick={() => scrollToSection('investimento')} className="text-gray-700 hover:text-joao-pink transition-colors">
               Investimento
             </button>
+            <Link to="/assessoria" className="text-gray-700 hover:text-joao-pink transition-colors font-semibold">
+              Assessoria
+            </Link>
             <Link to="/admin" className="text-gray-700 hover:text-joao-pink transition-colors text-sm">
               Admin
             </Link>
