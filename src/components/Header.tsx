@@ -38,15 +38,6 @@ const Header = () => {
             <button onClick={() => scrollToSection('investimento')} className="text-gray-700 hover:text-joao-pink transition-colors">
               Investimento
             </button>
-            <Link to="/assessoria" className="text-gray-700 hover:text-joao-pink transition-colors font-semibold">
-              Assessoria
-            </Link>
-            <Link to="/admin" className="text-gray-700 hover:text-joao-pink transition-colors text-sm">
-              Admin
-            </Link>
-            <Link to="/dashboard" className="text-gray-700 hover:text-joao-pink transition-colors text-sm">
-              Dashboard
-            </Link>
             <Button 
               onClick={() => scrollToSection('numeros')}
               className="gradient-bg hover:opacity-90 transition-opacity"
